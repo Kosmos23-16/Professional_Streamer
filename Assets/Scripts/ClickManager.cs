@@ -15,6 +15,11 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private GameObject rewardFigure1;
     [SerializeField] private GameObject rewardFigure2;
     [SerializeField] private GameObject rewardFigure3;
+    
+    [Header("Animation & Sound")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private string waveTrigger = "Wave";
 
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
@@ -34,6 +39,11 @@ public class ClickManager : MonoBehaviour
             int newFollowers = likesToNextFollower / 10;
             followers += newFollowers;
             likesToNextFollower %= 10;
+
+            for (int i = 0; i < newFollowers; i++)
+            {
+                PlayCelebrateEffect();  // вызываем для каждого нового подписчика
+            }
 
             CheckUnlocks();
         }
@@ -59,10 +69,19 @@ public class ClickManager : MonoBehaviour
             unlocked3 = true;
         }
     }
+    
+    private void PlayCelebrateEffect()
+    {
+        if (animator != null)
+            animator.SetTrigger(waveTrigger);
+
+        if (audioSource != null && !audioSource.isPlaying)
+            audioSource.Play();
+    }
 
     void Update()
     {
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
     }
-}
+}ы

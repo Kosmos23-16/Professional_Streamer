@@ -15,38 +15,56 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private GameObject rewardFigure1;
     [SerializeField] private GameObject rewardFigure2;
     [SerializeField] private GameObject rewardFigure3;
-    
+
     [Header("Animation & Sound")]
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource normalAudioSource;
+    [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
-
+    
+    [Header("Text")]
+    public Text coinsText;
+    public Text likesText;
+    public Text followersText;
+    
+    
+    private int coins = 0;
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
     private bool unlocked2 = false;
     private bool unlocked3 = false;
 
-    public Text likesText;
-    public Text followersText;
+
+    private const string LikesKey = "likes";
+    private const string FollowersKey = "followers";
+    private const string CoinsKey = "coins";
+
+    private void Start()
+    {
+        LoadData();
+        CheckUnlocks();
+    }
 
     public void ButtonClick()
     {
         likes++;
         likesToNextFollower++;
 
-        if (likesToNextFollower >= 10)
+        if (likesToNextFollower >= 30)
         {
-            int newFollowers = likesToNextFollower / 10;
-            followers += newFollowers;
-            likesToNextFollower %= 10;
+            int newFollowers = likesToNextFollower / 30;
+            likesToNextFollower %= 30;
 
             for (int i = 0; i < newFollowers; i++)
             {
-                PlayCelebrateEffect();  // вызываем для каждого нового подписчика
+                followers++;
+                coins += 100; 
+                PlayCelebrateEffect(followers);
+                CheckUnlocks();
             }
-
-            CheckUnlocks();
         }
+
+        SaveData();
     }
 
     private void CheckUnlocks()
@@ -69,19 +87,62 @@ public class ClickManager : MonoBehaviour
             unlocked3 = true;
         }
     }
-    
-    private void PlayCelebrateEffect()
+
+    private void PlayCelebrateEffect(int currentFollower)
     {
         if (animator != null)
             animator.SetTrigger(waveTrigger);
 
-        if (audioSource != null && !audioSource.isPlaying)
-            audioSource.Play();
+        if (currentFollower % 2 == 0)
+        {
+            if (specialAudioSource != null && !specialAudioSource.isPlaying)
+                specialAudioSource.Play();
+        }
+        else
+        {
+            if (normalAudioSource != null && !normalAudioSource.isPlaying)
+                normalAudioSource.Play();
+        }
     }
 
     void Update()
     {
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
+        coinsText.text = coins.ToString();
     }
-}ы
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(LikesKey, likes);
+        PlayerPrefs.SetInt(FollowersKey, followers);
+        PlayerPrefs.SetInt(CoinsKey, coins);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadData()
+    {
+        likes = PlayerPrefs.GetInt(LikesKey, 0);
+        followers = PlayerPrefs.GetInt(FollowersKey, 0);
+        coins = PlayerPrefs.GetInt(CoinsKey, 0);
+    }
+    
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteKey(LikesKey);
+        PlayerPrefs.DeleteKey(FollowersKey);
+        PlayerPrefs.DeleteKey(CoinsKey);
+        PlayerPrefs.Save();
+
+        likes = 0;
+        followers = 0;
+        likesToNextFollower = 0;
+        coins = 0;
+
+        unlocked1 = unlocked2 = unlocked3 = false;
+
+        rewardFigure1?.SetActive(false);
+        rewardFigure2?.SetActive(false);
+        rewardFigure3?.SetActive(false);
+    }
+}

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StreamerRoomStream.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: d56447d6947ff8541a4b494be97c9169
   m_configObjects: {}

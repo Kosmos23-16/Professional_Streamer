@@ -1536,6 +1536,9 @@ MonoBehaviour:
   rewardFigure1: {fileID: 395960629}
   rewardFigure2: {fileID: 1012827610}
   rewardFigure3: {fileID: 895346570}
+  animator: {fileID: 0}
+  audioSource: {fileID: 0}
+  waveTrigger: Wave
   likesText: {fileID: 2039613180}
   followersText: {fileID: 1514633391}
 --- !u!1 &1147844107
@@ -3158,8 +3161,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61177760959675770, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1084054
+      objectReference: {fileID: 0}
+    - target: {fileID: 61177760959675770, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000004768371
+      objectReference: {fileID: 0}
     - target: {fileID: 2036481874667034390, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
       propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cb8bbd3eeff22a14b878abf292614532, type: 2}
+    - target: {fileID: 4627843899325939704, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_animator
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8125554070588096843, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
@@ -3209,8 +3224,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8125554070588096843, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2111144013030232353}
   m_SourcePrefab: {fileID: 100100000, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+--- !u!1 &2111144013030232352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8125554070588096843, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+  m_PrefabInstance: {fileID: 2111144013030232351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2111144013030232353
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111144013030232352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46c2b5deef2d892438076c9e976224ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2277833818732575544
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1536,6 +1536,10 @@ MonoBehaviour:
   rewardFigure1: {fileID: 395960629}
   rewardFigure2: {fileID: 1012827610}
   rewardFigure3: {fileID: 895346570}
+  animator: {fileID: 0}
+  normalAudioSource: {fileID: 0}
+  specialAudioSource: {fileID: 0}
+  waveTrigger: Wave
   likesText: {fileID: 2039613180}
   followersText: {fileID: 1514633391}
 --- !u!1 &1147844107
@@ -3161,7 +3165,7 @@ PrefabInstance:
     - target: {fileID: 2036481874667034390, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 917c9f28183eaa84aa7876fd5c1c4b1d, type: 2}
     - target: {fileID: 8125554070588096843, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
       propertyPath: m_Name
       value: Streamer

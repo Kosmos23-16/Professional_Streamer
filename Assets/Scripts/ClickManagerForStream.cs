@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickManagerForStream : MonoBehaviour
+public class ClickManager : MonoBehaviour
 {
     [SerializeField] private int likes = 0;
     [SerializeField] private int followers = 0;
@@ -16,6 +16,12 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private GameObject rewardFigure2;
     [SerializeField] private GameObject rewardFigure3;
 
+    [Header("Animation & Sound")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource normalAudioSource;
+    [SerializeField] private AudioSource specialAudioSource;
+    [SerializeField] private string waveTrigger = "Wave";
+
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
     private bool unlocked2 = false;
@@ -24,19 +30,34 @@ public class ClickManagerForStream : MonoBehaviour
     public Text likesText;
     public Text followersText;
 
+    private const string LikesKey = "likes";
+    private const string FollowersKey = "followers";
+
+    private void Start()
+    {
+        LoadData();
+        CheckUnlocks();
+    }
+
     public void ButtonClick()
     {
         likes++;
         likesToNextFollower++;
 
-        if (likesToNextFollower >= 10)
+        if (likesToNextFollower >= 30)
         {
-            int newFollowers = likesToNextFollower / 10;
-            followers += newFollowers;
-            likesToNextFollower %= 10;
+            int newFollowers = likesToNextFollower / 30;
+            likesToNextFollower %= 30;
 
-            CheckUnlocks();
+            for (int i = 0; i < newFollowers; i++)
+            {
+                followers++;
+                PlayCelebrateEffect(followers);
+                CheckUnlocks();
+            }
         }
+
+        SaveData();
     }
 
     private void CheckUnlocks()
@@ -60,9 +81,56 @@ public class ClickManagerForStream : MonoBehaviour
         }
     }
 
+    private void PlayCelebrateEffect(int currentFollower)
+    {
+        if (animator != null)
+            animator.SetTrigger(waveTrigger);
+
+        if (currentFollower % 2 == 0)
+        {
+            if (specialAudioSource != null && !specialAudioSource.isPlaying)
+                specialAudioSource.Play();
+        }
+        else
+        {
+            if (normalAudioSource != null && !normalAudioSource.isPlaying)
+                normalAudioSource.Play();
+        }
+    }
+
     void Update()
     {
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(LikesKey, likes);
+        PlayerPrefs.SetInt(FollowersKey, followers);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadData()
+    {
+        likes = PlayerPrefs.GetInt(LikesKey, 0);
+        followers = PlayerPrefs.GetInt(FollowersKey, 0);
+    }
+    
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteKey(LikesKey);
+        PlayerPrefs.DeleteKey(FollowersKey);
+        PlayerPrefs.Save();
+
+        likes = 0;
+        followers = 0;
+        likesToNextFollower = 0;
+
+        unlocked1 = unlocked2 = unlocked3 = false;
+
+        rewardFigure1?.SetActive(false);
+        rewardFigure2?.SetActive(false);
+        rewardFigure3?.SetActive(false);
     }
 }

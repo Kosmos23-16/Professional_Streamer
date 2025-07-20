@@ -1536,7 +1536,7 @@ MonoBehaviour:
   rewardFigure1: {fileID: 395960629}
   rewardFigure2: {fileID: 1012827610}
   rewardFigure3: {fileID: 895346570}
-  animator: {fileID: 0}
+  animator: {fileID: 2026838710}
   normalAudioSource: {fileID: 0}
   specialAudioSource: {fileID: 0}
   waveTrigger: Wave
@@ -2969,6 +2969,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847166052}
   m_CullTransparentMesh: 1
+--- !u!95 &2026838710 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2036481874667034390, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+  m_PrefabInstance: {fileID: 2111144013030232351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2039613177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3171,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 917c9f28183eaa84aa7876fd5c1c4b1d, type: 2}
+    - target: {fileID: 2904840772780152415, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.76541173
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904840772780152415, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.19583997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904840772780152415, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.28331798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904840772780152415, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.54361975
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904840772780152415, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 70.594
+      objectReference: {fileID: 0}
     - target: {fileID: 8125554070588096843, guid: c898a420c452af742a35e6e1ed41ec92, type: 3}
       propertyPath: m_Name
       value: Streamer

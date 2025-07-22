@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class OpenWebsite : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    [Header("URL to Open")] public string url = "https://sites.google.com/d/1llfcnr7xXOPnYKWBjgXhxMuAs1XfBhCd/p/1jeI853W_qX-0amU8eRWyF3uFNjclCk3f/edit";
         
-    }
-
-    // Update is called once per frame
-    void Update()
+    public void OpenSite()
     {
-        
+        Application.OpenURL(url);
     }
 }
+

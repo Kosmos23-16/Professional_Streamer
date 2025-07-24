@@ -21,12 +21,18 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private AudioSource normalAudioSource;
     [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
+    
+    [Header("Particle Effects")]
+    [SerializeField] private GameObject likeParticlePrefab;
+    [SerializeField] private GameObject followerParticlePrefab;
+    [SerializeField] private Transform particleSpawnParent; 
 
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
     private bool unlocked2 = false;
     private bool unlocked3 = false;
 
+    [Header("Text Likes & Followers")]
     public Text likesText;
     public Text followersText;
 
@@ -44,6 +50,8 @@ public class ClickManager : MonoBehaviour
         likes++;
         likesToNextFollower++;
 
+        SpawnParticle(likeParticlePrefab);
+
         if (likesToNextFollower >= 30)
         {
             int newFollowers = likesToNextFollower / 30;
@@ -53,11 +61,21 @@ public class ClickManager : MonoBehaviour
             {
                 followers++;
                 PlayCelebrateEffect(followers);
+                SpawnParticle(followerParticlePrefab); 
                 CheckUnlocks();
             }
         }
 
         SaveData();
+    }
+    
+    private void SpawnParticle(GameObject prefab)
+    {
+        if (prefab == null || particleSpawnParent == null) return;
+
+        GameObject particle = Instantiate(prefab, particleSpawnParent);
+        RectTransform rect = particle.GetComponent<RectTransform>();
+        rect.anchoredPosition = Vector2.zero;
     }
 
     private void CheckUnlocks()

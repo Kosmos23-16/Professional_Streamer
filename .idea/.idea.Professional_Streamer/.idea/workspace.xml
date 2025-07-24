@@ -14,9 +14,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Particle/ParticleEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CoinsDisplay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FollowersDisplay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ShopManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -106,7 +105,7 @@
       <workItem from="1752593901456" duration="590000" />
       <workItem from="1752765328188" duration="700000" />
       <workItem from="1753048361807" duration="716000" />
-      <workItem from="1753366925170" duration="2000" />
+      <workItem from="1753366921730" duration="2517000" />
     </task>
     <servers />
   </component>

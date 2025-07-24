@@ -5,7 +5,8 @@ public class ClickManager : MonoBehaviour
 {
     [SerializeField] private int likes = 0;
     [SerializeField] private int followers = 0;
-
+    private int coins = 0;
+    
     [Header("Rewards")]
     [SerializeField] private int unlockAtFollowers = 100;
     [SerializeField] private int unlockAtFollowers2 = 100000;
@@ -22,22 +23,26 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
     
-    [Header("Particle Effects")]
+    /*[Header("Particle Effects")]
     [SerializeField] private GameObject likeParticlePrefab;
     [SerializeField] private GameObject followerParticlePrefab;
-    [SerializeField] private Transform particleSpawnParent; 
+    [SerializeField] private Transform particleSpawnParent; */
 
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
     private bool unlocked2 = false;
     private bool unlocked3 = false;
 
-    [Header("Text Likes & Followers")]
+    [Header("Text`s")]
     public Text likesText;
     public Text followersText;
+    public Text coinsText;
+    
+
 
     private const string LikesKey = "likes";
     private const string FollowersKey = "followers";
+    private const string CoinsKey = "coins";
 
     private void Start()
     {
@@ -50,7 +55,7 @@ public class ClickManager : MonoBehaviour
         likes++;
         likesToNextFollower++;
 
-        SpawnParticle(likeParticlePrefab);
+        //SpawnParticle(likeParticlePrefab);
 
         if (likesToNextFollower >= 30)
         {
@@ -60,8 +65,8 @@ public class ClickManager : MonoBehaviour
             for (int i = 0; i < newFollowers; i++)
             {
                 followers++;
+                coins += 100;
                 PlayCelebrateEffect(followers);
-                SpawnParticle(followerParticlePrefab); 
                 CheckUnlocks();
             }
         }
@@ -69,14 +74,14 @@ public class ClickManager : MonoBehaviour
         SaveData();
     }
     
-    private void SpawnParticle(GameObject prefab)
+    /*private void SpawnParticle(GameObject prefab)
     {
         if (prefab == null || particleSpawnParent == null) return;
 
         GameObject particle = Instantiate(prefab, particleSpawnParent);
         RectTransform rect = particle.GetComponent<RectTransform>();
         rect.anchoredPosition = Vector2.zero;
-    }
+    }*/
 
     private void CheckUnlocks()
     {
@@ -120,12 +125,14 @@ public class ClickManager : MonoBehaviour
     {
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
+        coinsText.text = coins.ToString();
     }
 
     private void SaveData()
     {
         PlayerPrefs.SetInt(LikesKey, likes);
         PlayerPrefs.SetInt(FollowersKey, followers);
+        PlayerPrefs.SetInt(CoinsKey, coins);
         PlayerPrefs.Save();
     }
 
@@ -133,17 +140,19 @@ public class ClickManager : MonoBehaviour
     {
         likes = PlayerPrefs.GetInt(LikesKey, 0);
         followers = PlayerPrefs.GetInt(FollowersKey, 0);
+        coins = PlayerPrefs.GetInt(CoinsKey, 0);
     }
     
     public void ResetData()
     {
         PlayerPrefs.DeleteKey(LikesKey);
         PlayerPrefs.DeleteKey(FollowersKey);
+        PlayerPrefs.DeleteKey(CoinsKey);
         PlayerPrefs.Save();
 
         likes = 0;
         followers = 0;
-        likesToNextFollower = 0;
+        coins = 0;
 
         unlocked1 = unlocked2 = unlocked3 = false;
 

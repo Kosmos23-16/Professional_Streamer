@@ -47,7 +47,7 @@ public class SceneTimer : MonoBehaviour
             timerText.enabled = true;
         }
 
-        timerText.text = "Осталось: " + Mathf.Ceil(timer).ToString() + " сек.";
+        timerText.text = Mathf.Ceil(timer).ToString();
 
         if (timer <= 0f)
         {

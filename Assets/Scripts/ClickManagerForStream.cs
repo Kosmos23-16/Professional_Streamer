@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickManager : MonoBehaviour
+public class ClickManagerForStream : MonoBehaviour
 {
     [SerializeField] private int likes = 0;
     [SerializeField] private int followers = 0;

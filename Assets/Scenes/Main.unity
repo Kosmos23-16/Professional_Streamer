@@ -6135,6 +6135,7 @@ GameObject:
   - component: {fileID: 1984681585}
   - component: {fileID: 1984681587}
   - component: {fileID: 1984681586}
+  - component: {fileID: 1984681588}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -6199,6 +6200,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984681584}
   m_CullTransparentMesh: 1
+--- !u!114 &1984681588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984681584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 2000
+  itemID: mouse
+  buyButton: {fileID: 193969570}
+  priceText: {fileID: 771080098}
 --- !u!1001 &1992494048
 PrefabInstance:
   m_ObjectHideFlags: 0

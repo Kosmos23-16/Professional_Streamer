@@ -2652,6 +2652,7 @@ GameObject:
   - component: {fileID: 735712530}
   - component: {fileID: 735712532}
   - component: {fileID: 735712531}
+  - component: {fileID: 735712533}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -2716,6 +2717,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735712529}
   m_CullTransparentMesh: 1
+--- !u!114 &735712533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735712529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 7000
+  itemID: camera
+  buyButton: {fileID: 1529382674}
+  priceText: {fileID: 753517807}
 --- !u!1 &753517805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,6 +3206,7 @@ GameObject:
   - component: {fileID: 867844373}
   - component: {fileID: 867844375}
   - component: {fileID: 867844374}
+  - component: {fileID: 867844376}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -3253,6 +3271,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867844372}
   m_CullTransparentMesh: 1
+--- !u!114 &867844376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867844372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 3000
+  itemID: headphones
+  buyButton: {fileID: 1109508135}
+  priceText: {fileID: 768853606}
 --- !u!1 &876048378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,7 +4283,6 @@ GameObject:
   - component: {fileID: 1384631632}
   - component: {fileID: 1384631634}
   - component: {fileID: 1384631633}
-  - component: {fileID: 1384631635}
   m_Layer: 0
   m_Name: Keyboard
   m_TagString: Untagged
@@ -4318,22 +4351,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384631631}
   m_CullTransparentMesh: 1
---- !u!114 &1384631635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384631631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrice: 3000
-  itemID: keyboard
-  buyButton: {fileID: 706336}
-  priceText: {fileID: 1465642288}
 --- !u!1 &1393157341
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,6 +5347,7 @@ GameObject:
   - component: {fileID: 1629930526}
   - component: {fileID: 1629930528}
   - component: {fileID: 1629930527}
+  - component: {fileID: 1629930529}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -5394,6 +5412,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629930525}
   m_CullTransparentMesh: 1
+--- !u!114 &1629930529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629930525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 5000
+  itemID: monitor
+  buyButton: {fileID: 686788963}
+  priceText: {fileID: 1399225330}
 --- !u!1 &1802844702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5754,7 +5788,6 @@ GameObject:
   - component: {fileID: 1816054121}
   - component: {fileID: 1816054123}
   - component: {fileID: 1816054122}
-  - component: {fileID: 1816054124}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -5823,22 +5856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816054120}
   m_CullTransparentMesh: 1
---- !u!114 &1816054124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816054120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrice: 2000
-  itemID: mouse
-  buyButton: {fileID: 193969570}
-  priceText: {fileID: 771080098}
 --- !u!4 &1870172303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8831440622811775711, guid: 0aac9b3b73a701d46af18a5a6fcbbffc, type: 3}
@@ -6630,6 +6647,7 @@ GameObject:
   - component: {fileID: 2013543813}
   - component: {fileID: 2013543815}
   - component: {fileID: 2013543814}
+  - component: {fileID: 2013543816}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -6694,6 +6712,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013543812}
   m_CullTransparentMesh: 1
+--- !u!114 &2013543816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013543812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 3000
+  itemID: keyboard
+  buyButton: {fileID: 706336}
+  priceText: {fileID: 1465642288}
 --- !u!1001 &2016306616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7049,6 +7083,7 @@ GameObject:
   - component: {fileID: 2101432039}
   - component: {fileID: 2101432041}
   - component: {fileID: 2101432040}
+  - component: {fileID: 2101432042}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -7113,6 +7148,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101432038}
   m_CullTransparentMesh: 1
+--- !u!114 &2101432042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101432038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrice: 4000
+  itemID: micro
+  buyButton: {fileID: 1806937234}
+  priceText: {fileID: 182510101}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

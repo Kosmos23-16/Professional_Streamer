@@ -32,6 +32,7 @@ public class Shop : MonoBehaviour
             PlayerPrefs.SetInt(CoinsKey, currentCoins);
             PlayerPrefs.SetInt(PurchasedKey, 1);
             PlayerPrefs.Save();
+            FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
 
             MarkAsPurchased();
             Debug.Log($"{itemID} куплено за {itemPrice} монет.");

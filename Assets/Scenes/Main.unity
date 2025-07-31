@@ -4331,7 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 3000
-  itemID: 
+  itemID: keyboard
   buyButton: {fileID: 706336}
   priceText: {fileID: 1465642288}
 --- !u!1 &1393157341
@@ -5486,7 +5486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 306997002}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 2000
-  itemID: 
+  itemID: mouse
   buyButton: {fileID: 193969570}
   priceText: {fileID: 771080098}
 --- !u!4 &1870172303 stripped

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ClickManagerForStream : MonoBehaviour
@@ -6,7 +6,7 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private int likes = 0;
     [SerializeField] private int followers = 0;
     private int coins = 0;
-    
+
     [Header("Rewards")]
     [SerializeField] private int unlockAtFollowers = 100;
     [SerializeField] private int unlockAtFollowers2 = 100000;
@@ -22,23 +22,16 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private AudioSource normalAudioSource;
     [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
-    
-    /*[Header("Particle Effects")]
-    [SerializeField] private GameObject likeParticlePrefab;
-    [SerializeField] private GameObject followerParticlePrefab;
-    [SerializeField] private Transform particleSpawnParent; */
-
-    private int likesToNextFollower = 0;
-    private bool unlocked1 = false;
-    private bool unlocked2 = false;
-    private bool unlocked3 = false;
 
     [Header("Text`s")]
     public Text likesText;
     public Text followersText;
     public Text coinsText;
-    
 
+    private int likesToNextFollower = 0;
+    private bool unlocked1 = false;
+    private bool unlocked2 = false;
+    private bool unlocked3 = false;
 
     private const string LikesKey = "likes";
     private const string FollowersKey = "followers";
@@ -52,20 +45,22 @@ public class ClickManagerForStream : MonoBehaviour
 
     public void ButtonClick()
     {
-        likes++;
-        likesToNextFollower++;
+        int likeBonus = 1 + BuffManager.Instance?.clickLikeBonus ?? 0;
+        int followerLikeThreshold = 30 - BuffManager.Instance?.followerThresholdReduction ?? 0;
+        int coinBonusPerFollower = 100 + BuffManager.Instance?.coinBonusPerFollower ?? 0;
 
-        //SpawnParticle(likeParticlePrefab);
+        likes += likeBonus;
+        likesToNextFollower += likeBonus;
 
-        if (likesToNextFollower >= 30)
+        if (likesToNextFollower >= followerLikeThreshold)
         {
-            int newFollowers = likesToNextFollower / 30;
-            likesToNextFollower %= 30;
+            int newFollowers = likesToNextFollower / followerLikeThreshold;
+            likesToNextFollower %= followerLikeThreshold;
 
             for (int i = 0; i < newFollowers; i++)
             {
                 followers++;
-                coins += 100;
+                coins += coinBonusPerFollower;
                 PlayCelebrateEffect(followers);
                 CheckUnlocks();
             }
@@ -73,15 +68,6 @@ public class ClickManagerForStream : MonoBehaviour
 
         SaveData();
     }
-    
-    /*private void SpawnParticle(GameObject prefab)
-    {
-        if (prefab == null || particleSpawnParent == null) return;
-
-        GameObject particle = Instantiate(prefab, particleSpawnParent);
-        RectTransform rect = particle.GetComponent<RectTransform>();
-        rect.anchoredPosition = Vector2.zero;
-    }*/
 
     private void CheckUnlocks()
     {
@@ -142,7 +128,7 @@ public class ClickManagerForStream : MonoBehaviour
         followers = PlayerPrefs.GetInt(FollowersKey, 0);
         coins = PlayerPrefs.GetInt(CoinsKey, 0);
     }
-    
+
     public void ResetData()
     {
         PlayerPrefs.DeleteKey(LikesKey);

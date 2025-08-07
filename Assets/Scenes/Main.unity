@@ -3332,6 +3332,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNumberToLoad: 4
+--- !u!1 &838851659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838851661}
+  - component: {fileID: 838851660}
+  m_Layer: 0
+  m_Name: BuffManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &838851660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838851659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd24d010a6b007441b68e71f819645ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickLikeBonus: 0
+  coinBonusPerFollower: 0
+  followerThresholdReduction: 0
+--- !u!4 &838851661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838851659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.17, y: -16.665302, z: -0.6029999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867844372
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,8 +3467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 3000
-  itemID: headphones
+  itemPrice: 200
+  itemID: buff_click_1
   buyButton: {fileID: 1109508135}
   priceText: {fileID: 768853606}
 --- !u!1 &876048378
@@ -7423,3 +7470,4 @@ SceneRoots:
   - {fileID: 2000818494}
   - {fileID: 720755935}
   - {fileID: 230875399}
+  - {fileID: 838851661}

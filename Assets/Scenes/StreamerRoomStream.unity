@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ac6faa90802514841ad83ad647170024,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325039656767270722, guid: ac6faa90802514841ad83ad647170024,
         type: 3}
@@ -2008,7 +2008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   likes: 0
   followers: 0
-  unlockAtFollowers: 10000
+  unlockAtFollowers: 1000
   unlockAtFollowers2: 100000
   unlockAtFollowers3: 1000000
   rewardFigure1: {fileID: 395960629}
@@ -3628,7 +3628,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 23503d82546151040a666d3c96b7b418,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325039656767270722, guid: 23503d82546151040a666d3c96b7b418,
         type: 3}
@@ -3894,7 +3894,7 @@ PrefabInstance:
     - target: {fileID: 8338921351693755414, guid: bbb1c4243e39d764699480c33a9e4810,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8715059449755090604, guid: bbb1c4243e39d764699480c33a9e4810,
         type: 3}

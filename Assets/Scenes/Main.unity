@@ -3132,7 +3132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 7000
-  itemID: camera
+  itemID: buff_coin_1
   buyButton: {fileID: 1529382674}
   priceText: {fileID: 753517807}
 --- !u!1 &753517805
@@ -3732,8 +3732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 200
-  itemID: buff_click_1
+  itemPrice: 3000
+  itemID: buff_coin_1
   buyButton: {fileID: 1109508135}
   priceText: {fileID: 768853606}
 --- !u!1 &876048378
@@ -6122,7 +6122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 5000
-  itemID: monitor
+  itemID: buff_click_1
   buyButton: {fileID: 686788963}
   priceText: {fileID: 1399225330}
 --- !u!1 &1648869089
@@ -7218,7 +7218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 2000
-  itemID: mouse
+  itemID: buff_click_1
   buyButton: {fileID: 193969570}
   priceText: {fileID: 771080098}
 --- !u!1001 &1992494048
@@ -7737,7 +7737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 3000
-  itemID: keyboard
+  itemID: buff_click_1
   buyButton: {fileID: 706336}
   priceText: {fileID: 1465642288}
 --- !u!1001 &2016306616
@@ -8254,7 +8254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 4000
-  itemID: micro
+  itemID: buff_follower_easy
   buyButton: {fileID: 1806937234}
   priceText: {fileID: 182510101}
 --- !u!1660057539 &9223372036854775807

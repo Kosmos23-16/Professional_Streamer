@@ -5,7 +5,7 @@ public class BuffManager : MonoBehaviour
     public static BuffManager Instance;
 
     public int clickLikeBonus = 0;
-    public int coinBonusPerFollower = 0;
+    public int coinBonusPerFollower = 0; 
     public int followerThresholdReduction = 0;
 
     void Awake()

@@ -5,24 +5,47 @@ public class BuffManager : MonoBehaviour
     public static BuffManager Instance;
 
     public int clickLikeBonus = 0;
+    public int coinBonusPerFollower = 0; 
+    public int followerThresholdReduction = 0;
 
-    private void Awake()
+    void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            LoadBuffs();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void ApplyBuff(string buffID)
+    public void ApplyBuff(string itemID)
     {
-        if (buffID == "buff_click_1")
-            clickLikeBonus += 1;
-        else if (buffID == "buff_click_2")
-            clickLikeBonus += 2;
-        else if (buffID == "buff_click_3")
-            clickLikeBonus += 3;
+        switch (itemID)
+        {
+            case "buff_click_1":
+                clickLikeBonus += 1;
+                break;
+            case "buff_coin_1":
+                coinBonusPerFollower += 50;
+                break;
+            case "buff_follower_easy":
+                followerThresholdReduction += 5;
+                break;
+        }
     }
 
-    public void ResetBuffs()
+    public void LoadBuffs()
     {
-        clickLikeBonus = 0;
+        foreach (var id in ShopItemIDs.All)
+        {
+            if (PlayerPrefs.GetInt($"shop_item_{id}_purchased", 0) == 1)
+            {
+                ApplyBuff(id);
+            }
+        }
     }
 }

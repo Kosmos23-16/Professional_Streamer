@@ -28,12 +28,17 @@ public class Shop : MonoBehaviour
 
         if (currentCoins >= itemPrice && !IsPurchased())
         {
+
             currentCoins -= itemPrice;
             PlayerPrefs.SetInt(CoinsKey, currentCoins);
 
+  
             PlayerPrefs.SetInt(PurchasedKey, 1);
             PlayerPrefs.Save();
+
+   
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
+
 
             BuffManager.Instance?.ApplyBuff(itemID);
 
@@ -43,7 +48,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            Debug.Log("Недостатньо монет або предмет вже куплений.");
+            Debug.Log("Недостатньо монет або предмет вже куплено.");
         }
     }
 

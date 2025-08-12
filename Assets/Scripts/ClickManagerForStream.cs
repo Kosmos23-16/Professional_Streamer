@@ -45,22 +45,20 @@ public class ClickManagerForStream : MonoBehaviour
 
     public void ButtonClick()
     {
-        int likeBonus = 1 + BuffManager.Instance?.clickLikeBonus ?? 0;
-        int followerLikeThreshold = 30 - BuffManager.Instance?.followerThresholdReduction ?? 0;
-        int coinBonusPerFollower = 100 + BuffManager.Instance?.coinBonusPerFollower ?? 0;
+        int clickValue = 1 + (BuffManager.Instance?.clickLikeBonus ?? 0);
 
-        likes += likeBonus;
-        likesToNextFollower += likeBonus;
+        likes += clickValue;
+        likesToNextFollower += clickValue;
 
-        if (likesToNextFollower >= followerLikeThreshold)
+        if (likesToNextFollower >= 30)
         {
-            int newFollowers = likesToNextFollower / followerLikeThreshold;
-            likesToNextFollower %= followerLikeThreshold;
+            int newFollowers = likesToNextFollower / 30;
+            likesToNextFollower %= 30;
 
             for (int i = 0; i < newFollowers; i++)
             {
                 followers++;
-                coins += coinBonusPerFollower;
+                coins += 100;
                 PlayCelebrateEffect(followers);
                 CheckUnlocks();
             }
@@ -145,5 +143,8 @@ public class ClickManagerForStream : MonoBehaviour
         rewardFigure1?.SetActive(false);
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
+
+        if (BuffManager.Instance != null)
+            BuffManager.Instance.ResetBuffs();
     }
 }

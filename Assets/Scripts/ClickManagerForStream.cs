@@ -51,6 +51,8 @@ public class ClickManagerForStream : MonoBehaviour
 
         likes += likeBonus;
         likesToNextFollower += likeBonus;
+        AchievementsManager.Instance?.CheckAchievements(coins);
+
 
         if (likesToNextFollower >= followerLikeThreshold)
         {
@@ -146,4 +148,10 @@ public class ClickManagerForStream : MonoBehaviour
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
     }
+    public void AddCoins(int amount)
+    {
+        coins += amount;
+        SaveData();
+    }
+
 }

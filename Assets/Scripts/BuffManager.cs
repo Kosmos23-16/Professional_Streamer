@@ -5,8 +5,6 @@ public class BuffManager : MonoBehaviour
     public static BuffManager Instance;
 
     public int clickLikeBonus = 0;
-    public int coinBonusPerFollower = 0; 
-    public int followerThresholdReduction = 0;
 
     void Awake()
     {
@@ -29,11 +27,17 @@ public class BuffManager : MonoBehaviour
             case "buff_click_1":
                 clickLikeBonus += 1;
                 break;
-            case "buff_coin_1":
-                coinBonusPerFollower += 50;
+            case "buff_click_2":
+                clickLikeBonus += 2;
                 break;
-            case "buff_follower_easy":
-                followerThresholdReduction += 5;
+            case "buff_click_3":
+                clickLikeBonus += 3;
+                break;
+            case "buff_click_4":
+                clickLikeBonus += 4;
+                break;
+            case "buff_click_5":
+                clickLikeBonus += 5;
                 break;
         }
     }

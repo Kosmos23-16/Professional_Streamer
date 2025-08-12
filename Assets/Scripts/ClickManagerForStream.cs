@@ -45,9 +45,9 @@ public class ClickManagerForStream : MonoBehaviour
 
     public void ButtonClick()
     {
-        int likeBonus = 1 + BuffManager.Instance?.clickLikeBonus ?? 0;
-        int followerLikeThreshold = 30 - BuffManager.Instance?.followerThresholdReduction ?? 0;
-        int coinBonusPerFollower = 100 + BuffManager.Instance?.coinBonusPerFollower ?? 0;
+        int likeBonus = 1 + (BuffManager.Instance?.clickLikeBonus ?? 0);
+        int followerLikeThreshold = 30;
+        int coinBonusPerFollower = 100;
 
         likes += likeBonus;
         likesToNextFollower += likeBonus;

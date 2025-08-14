@@ -286,7 +286,6 @@ GameObject:
   - component: {fileID: 155177269}
   - component: {fileID: 155177268}
   - component: {fileID: 155177267}
-  - component: {fileID: 155177266}
   - component: {fileID: 155177270}
   m_Layer: 7
   m_Name: Stop Button
@@ -315,19 +314,6 @@ RectTransform:
   m_AnchoredPosition: {x: -426.43, y: 214}
   m_SizeDelta: {x: 16.1, y: 16.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &155177266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155177264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2833c4530364781478a0181592c78697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNumberToLoad: 0
 --- !u!114 &155177267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,10 +382,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1125331508}
+        m_TargetAssemblyTypeName: ClickManagerForStream, Assembly-CSharp
+        m_MethodName: StopGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1432,6 +1418,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527648880}
   m_CullTransparentMesh: 1
+--- !u!1 &834789950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834789952}
+  - component: {fileID: 834789951}
+  m_Layer: 0
+  m_Name: AchievementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &834789951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834789950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c739f4e7049975445b2dd4c872de2190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievements:
+  - id: click_100
+    title: make 100 clicks
+    targetValue: 100
+    rewardCoins: 10
+    isUnlocked: 0
+    rewardClaimed: 0
+  achievementTexts: []
+--- !u!4 &834789952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834789950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.3930955, y: -16.11702, z: -8.362906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838092278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,3 +4877,4 @@ SceneRoots:
   - {fileID: 2111144013030232351}
   - {fileID: 1651414376}
   - {fileID: 232252863}
+  - {fileID: 834789952}

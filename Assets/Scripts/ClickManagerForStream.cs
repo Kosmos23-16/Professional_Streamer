@@ -52,9 +52,8 @@ public class ClickManagerForStream : MonoBehaviour
         likes += likeBonus;
         likesToNextFollower += likeBonus;
 
-        AchievementManager achManager = FindObjectOfType<AchievementManager>();
-        if (achManager != null)
-            achManager.AddProgress("click_100", 1);
+        // Додаємо прогрес до ачівки
+        FindObjectOfType<AchievementManager>()?.AddProgress("click_100", likeBonus);
 
         if (likesToNextFollower >= followerLikeThreshold)
         {
@@ -149,5 +148,11 @@ public class ClickManagerForStream : MonoBehaviour
         rewardFigure1?.SetActive(false);
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
+    }
+
+    public void StopGame()
+    {
+        SaveData();
+        Debug.Log("Дані збережено перед зупинкою!");
     }
 }

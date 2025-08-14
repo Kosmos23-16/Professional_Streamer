@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923395959712443219}
-  m_Mesh: {fileID: 7150500091642341815, guid: ae86dea404091ce4e9711fa6caa29f7c, type: 3}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &122083309298338438
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 50
   rotationSpeed: 100
-  spawner: {fileID: 0}
 --- !u!135 &1606768760178655127
 SphereCollider:
   m_ObjectHideFlags: 0

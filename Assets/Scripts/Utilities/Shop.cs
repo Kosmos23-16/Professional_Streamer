@@ -40,8 +40,6 @@ public class Shop : MonoBehaviour
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
 
 
-            BuffManager.Instance?.ApplyBuff(itemID);
-
             MarkAsPurchased();
 
             Debug.Log($"{itemID} куплено за {itemPrice} монет.");

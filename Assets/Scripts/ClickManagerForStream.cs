@@ -45,12 +45,16 @@ public class ClickManagerForStream : MonoBehaviour
 
     public void ButtonClick()
     {
-        int likeBonus = 1 + (BuffManager.Instance?.clickLikeBonus ?? 0);
+        int likeBonus = 1;
         int followerLikeThreshold = 30;
         int coinBonusPerFollower = 100;
 
         likes += likeBonus;
         likesToNextFollower += likeBonus;
+
+        AchievementManager achManager = FindObjectOfType<AchievementManager>();
+        if (achManager != null)
+            achManager.AddProgress("click_100", 1);
 
         if (likesToNextFollower >= followerLikeThreshold)
         {

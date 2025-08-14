@@ -5,8 +5,6 @@ public class Coin : MonoBehaviour
     public int coinValue = 50;
     public float rotationSpeed = 100f;
 
-    [HideInInspector] public CoinSpawner spawner;
-
     void Update()
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
@@ -26,11 +24,6 @@ public class Coin : MonoBehaviour
             if (display != null)
             {
                 display.RefreshCoinsUI();
-            }
-
-            if (spawner != null)
-            {
-                spawner.SpawnNewCoin();
             }
 
             Destroy(gameObject);

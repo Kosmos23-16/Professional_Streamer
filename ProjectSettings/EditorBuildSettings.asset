@@ -14,16 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Video.unity
     guid: 0eeab92ee50e94b4995bc4e2ec8e2162
-  - enabled: 0
-    path: Assets/Scenes/Settings.unity
-    guid: 9f077778947b0b448b10831575826b14
-  - enabled: 0
-    path: Assets/Scenes/Achiev.unity
-    guid: a4a3db3055a2d7d49be230a947928c74
-  - enabled: 0
-    path: Assets/Scenes/Info.unity
-    guid: 61b807019bb532f4e92f52344c9fcf0a
   - enabled: 1
     path: Assets/Scenes/Achievements.unity
     guid: 29c4f9ea073b56d449e1dd8a5df74e43
+  - enabled: 1
+    path: Assets/Scenes/MiniGames.unity
+    guid: 4bc9c39831207aa4081f39b7af5f0288
   m_configObjects: {}

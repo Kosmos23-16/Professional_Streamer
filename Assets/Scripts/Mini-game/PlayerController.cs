@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private FixedJoystick joystick;
+    [SerializeField] private Animator animator;
+
+    [SerializeField] private float speed = 5f;
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector3(joystick.Horizontal * speed, rb.velocity.y, joystick.Vertical * speed);
+
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(new Vector3(joystick.Horizontal, 0, joystick.Vertical));
+            animator.SetBool("isRuning", true);
+        }
+        else
+        {
+            animator.SetBool("isRuning", false);
+        }
+
+    }
+}

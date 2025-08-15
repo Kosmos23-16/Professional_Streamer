@@ -4,6 +4,7 @@ public class Coin : MonoBehaviour
 {
     public int coinValue = 50;
     public float rotationSpeed = 100f;
+    public GameObject coinPrefab;
 
     void Update()
     {

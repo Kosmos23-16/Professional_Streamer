@@ -52,7 +52,6 @@ public class ClickManagerForStream : MonoBehaviour
         likes += likeBonus;
         likesToNextFollower += likeBonus;
 
-        // Додаємо прогрес до ачівки
         FindObjectOfType<AchievementManager>()?.AddProgress("click_100", likeBonus);
 
         if (likesToNextFollower >= followerLikeThreshold)

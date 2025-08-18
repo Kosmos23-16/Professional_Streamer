@@ -23,10 +23,11 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
 
-    [Header("Text`s")]
+    [Header("UI")]
     public Text likesText;
     public Text followersText;
     public Text coinsText;
+    public Text rewardAvailableText; // Текст для сповіщення про нагороду
 
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
@@ -41,6 +42,7 @@ public class ClickManagerForStream : MonoBehaviour
     {
         LoadData();
         CheckUnlocks();
+        UpdateRewardText();
     }
 
     public void ButtonClick()
@@ -52,7 +54,9 @@ public class ClickManagerForStream : MonoBehaviour
         likes += likeBonus;
         likesToNextFollower += likeBonus;
 
-        FindObjectOfType<AchievementManager>()?.AddProgress("click_100", likeBonus);
+        // Додаємо прогрес до ачівки
+        AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        achievementManager?.AddProgress("click_100", likeBonus);
 
         if (likesToNextFollower >= followerLikeThreshold)
         {
@@ -68,6 +72,7 @@ public class ClickManagerForStream : MonoBehaviour
             }
         }
 
+        UpdateRewardText();
         SaveData();
     }
 
@@ -114,6 +119,8 @@ public class ClickManagerForStream : MonoBehaviour
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
         coinsText.text = coins.ToString();
+
+        UpdateRewardText();
     }
 
     private void SaveData()
@@ -147,11 +154,43 @@ public class ClickManagerForStream : MonoBehaviour
         rewardFigure1?.SetActive(false);
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
+
+        UpdateRewardText();
     }
 
-    public void StopGame()
+    private void UpdateRewardText()
     {
-        SaveData();
-        Debug.Log("Дані збережено перед зупинкою!");
+        if (rewardAvailableText == null) return;
+
+        AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        if (achievementManager == null) return;
+
+        bool rewardAvailable = false;
+        foreach (var ach in achievementManager.achievements)
+        {
+            if (ach.isUnlocked && !ach.rewardClaimed)
+            {
+                rewardAvailable = true;
+                break;
+            }
+        }
+
+        rewardAvailableText.gameObject.SetActive(rewardAvailable);
+        rewardAvailableText.text = rewardAvailable ? "Нагорода доступна!" : "";
+    }
+
+    public void ClaimAchievementReward(string achievementId)
+    {
+        AchievementManager achievementManager = FindObjectOfType<AchievementManager>();
+        if (achievementManager == null) return;
+
+        Achievement achievement = achievementManager.GetAchievementById(achievementId);
+        if (achievement != null && achievement.isUnlocked && !achievement.rewardClaimed)
+        {
+            coins += achievement.rewardCoins;
+            achievement.rewardClaimed = true;
+            UpdateRewardText();
+            SaveData();
+        }
     }
 }

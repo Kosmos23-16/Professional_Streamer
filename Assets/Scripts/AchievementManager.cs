@@ -1,93 +1,66 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 [System.Serializable]
 public class Achievement
 {
     public string id;
-    public string title;
-    public int targetValue;
+    public string name;
+    public int requiredProgress;
     public int rewardCoins;
+    public int currentProgress;
     public bool isUnlocked;
     public bool rewardClaimed;
-    public int currentValue;
 }
 
 public class AchievementManager : MonoBehaviour
 {
     public List<Achievement> achievements = new List<Achievement>();
-    public Text coinsText; // Опціонально для UI монет
 
-    private const string CoinsKey = "coins";
-
-    void Awake()
+    private void Start()
     {
         LoadAchievements();
-        UpdateCoinsUI();
     }
 
-    public void AddProgress(string achievementId, int amount)
+    public void AddProgress(string id, int amount)
     {
-        foreach (var ach in achievements)
+        Achievement ach = GetAchievementById(id);
+        if (ach != null && !ach.isUnlocked)
         {
-            if (ach.id == achievementId && !ach.isUnlocked)
+            ach.currentProgress += amount;
+            if (ach.currentProgress >= ach.requiredProgress)
             {
-                ach.currentValue += amount;
-                if (ach.currentValue >= ach.targetValue)
-                {
-                    ach.isUnlocked = true;
-                    Debug.Log($"Achievement unlocked: {ach.title}");
-                }
+                ach.isUnlocked = true;
+                ach.currentProgress = ach.requiredProgress;
+                Debug.Log($"Ачівка '{ach.name}' виконана!");
             }
+            SaveAchievements();
         }
-        SaveAchievements();
     }
 
-    public void ClaimReward(string achievementId)
+    public Achievement GetAchievementById(string id)
+    {
+        return achievements.Find(a => a.id == id);
+    }
+
+    public void SaveAchievements()
     {
         foreach (var ach in achievements)
         {
-            if (ach.id == achievementId && ach.isUnlocked && !ach.rewardClaimed)
-            {
-                ach.rewardClaimed = true;
-                int coins = PlayerPrefs.GetInt(CoinsKey, 0);
-                coins += ach.rewardCoins;
-                PlayerPrefs.SetInt(CoinsKey, coins);
-                PlayerPrefs.Save();
-                Debug.Log($"Reward claimed: +{ach.rewardCoins} coins");
-                UpdateCoinsUI();
-            }
-        }
-        SaveAchievements();
-    }
-
-    private void SaveAchievements()
-    {
-        foreach (var ach in achievements)
-        {
-            PlayerPrefs.SetInt($"{ach.id}_current", ach.currentValue);
-            PlayerPrefs.SetInt($"{ach.id}_unlocked", ach.isUnlocked ? 1 : 0);
-            PlayerPrefs.SetInt($"{ach.id}_claimed", ach.rewardClaimed ? 1 : 0);
+            PlayerPrefs.SetInt(ach.id + "_progress", ach.currentProgress);
+            PlayerPrefs.SetInt(ach.id + "_unlocked", ach.isUnlocked ? 1 : 0);
+            PlayerPrefs.SetInt(ach.id + "_claimed", ach.rewardClaimed ? 1 : 0);
         }
         PlayerPrefs.Save();
     }
 
-    private void LoadAchievements()
+    public void LoadAchievements()
     {
         foreach (var ach in achievements)
         {
-            ach.currentValue = PlayerPrefs.GetInt($"{ach.id}_current", 0);
-            ach.isUnlocked = PlayerPrefs.GetInt($"{ach.id}_unlocked", 0) == 1;
-            ach.rewardClaimed = PlayerPrefs.GetInt($"{ach.id}_claimed", 0) == 1;
-        }
-    }
-
-    private void UpdateCoinsUI()
-    {
-        if (coinsText != null)
-        {
-            coinsText.text = PlayerPrefs.GetInt(CoinsKey, 0).ToString();
+            ach.currentProgress = PlayerPrefs.GetInt(ach.id + "_progress", 0);
+            ach.isUnlocked = PlayerPrefs.GetInt(ach.id + "_unlocked", 0) == 1;
+            ach.rewardClaimed = PlayerPrefs.GetInt(ach.id + "_claimed", 0) == 1;
         }
     }
 }

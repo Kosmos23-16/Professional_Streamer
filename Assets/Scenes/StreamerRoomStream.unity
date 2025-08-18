@@ -1454,7 +1454,22 @@ MonoBehaviour:
     rewardCoins: 10
     isUnlocked: 0
     rewardClaimed: 0
-  achievementTexts: []
+    currentValue: 0
+  - id: click_1000
+    title: make 1000 clicks
+    targetValue: 1000
+    rewardCoins: 100
+    isUnlocked: 0
+    rewardClaimed: 0
+    currentValue: 0
+  - id: click_10000
+    title: make 10000 clicks
+    targetValue: 10000
+    rewardCoins: 1000
+    isUnlocked: 0
+    rewardClaimed: 0
+    currentValue: 0
+  coinsText: {fileID: 0}
 --- !u!4 &834789952
 Transform:
   m_ObjectHideFlags: 0

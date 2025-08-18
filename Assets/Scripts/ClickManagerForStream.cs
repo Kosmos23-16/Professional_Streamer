@@ -5,7 +5,6 @@ public class ClickManagerForStream : MonoBehaviour
 {
     [SerializeField] private int likes = 0;
     [SerializeField] private int followers = 0;
-    private int coins = 0;
 
     [Header("Rewards")]
     [SerializeField] private int unlockAtFollowers = 100;
@@ -41,6 +40,7 @@ public class ClickManagerForStream : MonoBehaviour
     {
         LoadData();
         CheckUnlocks();
+        RefreshCoins();
     }
 
     public void ButtonClick()
@@ -62,9 +62,16 @@ public class ClickManagerForStream : MonoBehaviour
             for (int i = 0; i < newFollowers; i++)
             {
                 followers++;
+
+                // 🔑 Тепер монети зберігаємо в PlayerPrefs
+                int coins = PlayerPrefs.GetInt(CoinsKey, 0);
                 coins += coinBonusPerFollower;
+                PlayerPrefs.SetInt(CoinsKey, coins);
+                PlayerPrefs.Save();
+
                 PlayCelebrateEffect(followers);
                 CheckUnlocks();
+                RefreshCoins();
             }
         }
 
@@ -113,14 +120,13 @@ public class ClickManagerForStream : MonoBehaviour
     {
         likesText.text = likes.ToString();
         followersText.text = followers.ToString();
-        coinsText.text = coins.ToString();
+        coinsText.text = PlayerPrefs.GetInt(CoinsKey, 0).ToString();
     }
 
     private void SaveData()
     {
         PlayerPrefs.SetInt(LikesKey, likes);
         PlayerPrefs.SetInt(FollowersKey, followers);
-        PlayerPrefs.SetInt(CoinsKey, coins);
         PlayerPrefs.Save();
     }
 
@@ -128,7 +134,6 @@ public class ClickManagerForStream : MonoBehaviour
     {
         likes = PlayerPrefs.GetInt(LikesKey, 0);
         followers = PlayerPrefs.GetInt(FollowersKey, 0);
-        coins = PlayerPrefs.GetInt(CoinsKey, 0);
     }
 
     public void ResetData()
@@ -140,18 +145,27 @@ public class ClickManagerForStream : MonoBehaviour
 
         likes = 0;
         followers = 0;
-        coins = 0;
 
         unlocked1 = unlocked2 = unlocked3 = false;
 
         rewardFigure1?.SetActive(false);
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
+
+        RefreshCoins();
     }
 
     public void StopGame()
     {
         SaveData();
         Debug.Log("Дані збережено перед зупинкою!");
+    }
+
+    public void RefreshCoins()
+    {
+        if (coinsText != null)
+        {
+            coinsText.text = PlayerPrefs.GetInt(CoinsKey, 0).ToString();
+        }
     }
 }

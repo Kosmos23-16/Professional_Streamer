@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -17,14 +16,11 @@ public class Achievement
 public class AchievementManager : MonoBehaviour
 {
     public List<Achievement> achievements = new List<Achievement>();
-    public Text coinsText; // Опціонально для UI монет
-
     private const string CoinsKey = "coins";
 
     void Awake()
     {
         LoadAchievements();
-        UpdateCoinsUI();
     }
 
     public void AddProgress(string achievementId, int amount)
@@ -55,8 +51,13 @@ public class AchievementManager : MonoBehaviour
                 coins += ach.rewardCoins;
                 PlayerPrefs.SetInt(CoinsKey, coins);
                 PlayerPrefs.Save();
+
                 Debug.Log($"Reward claimed: +{ach.rewardCoins} coins");
-                UpdateCoinsUI();
+                ClickManagerForStream streamManager = FindObjectOfType<ClickManagerForStream>();
+                if (streamManager != null)
+                {
+                    streamManager.RefreshCoins();
+                }
             }
         }
         SaveAchievements();
@@ -80,14 +81,6 @@ public class AchievementManager : MonoBehaviour
             ach.currentValue = PlayerPrefs.GetInt($"{ach.id}_current", 0);
             ach.isUnlocked = PlayerPrefs.GetInt($"{ach.id}_unlocked", 0) == 1;
             ach.rewardClaimed = PlayerPrefs.GetInt($"{ach.id}_claimed", 0) == 1;
-        }
-    }
-
-    private void UpdateCoinsUI()
-    {
-        if (coinsText != null)
-        {
-            coinsText.text = PlayerPrefs.GetInt(CoinsKey, 0).ToString();
         }
     }
 }

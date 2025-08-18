@@ -11501,59 +11501,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1735942707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1745839799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1745839800}
-  - component: {fileID: 1745839801}
-  m_Layer: 0
-  m_Name: AchievementManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1745839800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745839799}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901708736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1745839801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745839799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c739f4e7049975445b2dd4c872de2190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievements:
-  - id: click_100
-    title: make 100 clicks
-    targetValue: 100
-    rewardCoins: 10
-    isUnlocked: 0
-    rewardClaimed: 0
-    currentValue: 0
-  coinsText: {fileID: 0}
 --- !u!1 &1802844702
 GameObject:
   m_ObjectHideFlags: 0
@@ -12382,7 +12329,6 @@ Transform:
   - {fileID: 2000818494}
   - {fileID: 1246889589}
   - {fileID: 1393157344}
-  - {fileID: 1745839800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946530369 stripped
@@ -12542,8 +12488,8 @@ RectTransform:
   - {fileID: 917383329}
   - {fileID: 289580113}
   - {fileID: 1253093360}
-  - {fileID: 814401604}
   - {fileID: 179746175}
+  - {fileID: 814401604}
   - {fileID: 1992494049}
   - {fileID: 1111362894}
   m_Father: {fileID: 1142371237}

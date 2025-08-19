@@ -1,81 +1,74 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-
-[System.Serializable]
-public class Achievement
-{
-    public string id;
-    public string title;
-    public int targetValue;
-    public int rewardCoins;
-    public bool isUnlocked;
-    public bool rewardClaimed;
-    public int currentValue;
-}
+using UnityEngine.UI;
+using System.Collections;
 
 public class AchievementManager : MonoBehaviour
 {
-    public List<Achievement> achievements = new List<Achievement>();
-    private const string CoinsKey = "coins";
+    [SerializeField] private Achievement[] achievements;
 
-    void Awake()
-    {
-        LoadAchievements();
-    }
+    [Header("UI Notification")]
+    [SerializeField] private GameObject achievementNotificationPanel;
+    [SerializeField] private Text achievementNotificationText;
+    [SerializeField] private float notificationDuration = 3f;
 
-    public void AddProgress(string achievementId, int amount)
+    public void AddProgress(string id, int amount)
     {
-        foreach (var ach in achievements)
+        Achievement achievement = GetAchievementById(id);
+        if (achievement != null && !achievement.isUnlocked)
         {
-            if (ach.id == achievementId && !ach.isUnlocked)
+            achievement.currentValue += amount;
+            if (achievement.currentValue >= achievement.targetValue)
             {
-                ach.currentValue += amount;
-                if (ach.currentValue >= ach.targetValue)
-                {
-                    ach.isUnlocked = true;
-                    Debug.Log($"Achievement unlocked: {ach.title}");
-                }
+                UnlockAchievement(achievement);
             }
         }
-        SaveAchievements();
     }
 
-    public void ClaimReward(string achievementId)
+    private void UnlockAchievement(Achievement achievement)
     {
-        foreach (var ach in achievements)
-        {
-            if (ach.id == achievementId && ach.isUnlocked && !ach.rewardClaimed)
-            {
-                ach.rewardClaimed = true;
-                int coins = PlayerPrefs.GetInt(CoinsKey, 0);
-                coins += ach.rewardCoins;
-                PlayerPrefs.SetInt(CoinsKey, coins);
-                PlayerPrefs.Save();
+        achievement.isUnlocked = true;
+        Debug.Log($"Ачівка виконана: {achievement.title}");
 
-                Debug.Log($"Reward claimed: +{ach.rewardCoins} coins");
-            }
+        ShowNotification($"Виконано: {achievement.title}!");
+    }
+
+    public Achievement GetAchievementById(string id)
+    {
+        foreach (Achievement a in achievements)
+        {
+            if (a.id == id)
+                return a;
         }
-        SaveAchievements();
+        return null;
     }
 
-    private void SaveAchievements()
+    public void SaveAchievements()
     {
-        foreach (var ach in achievements)
+        foreach (Achievement achievement in achievements)
         {
-            PlayerPrefs.SetInt($"{ach.id}_current", ach.currentValue);
-            PlayerPrefs.SetInt($"{ach.id}_unlocked", ach.isUnlocked ? 1 : 0);
-            PlayerPrefs.SetInt($"{ach.id}_claimed", ach.rewardClaimed ? 1 : 0);
+            PlayerPrefs.SetInt($"ach_{achievement.id}_unlocked", achievement.isUnlocked ? 1 : 0);
+            PlayerPrefs.SetInt($"ach_{achievement.id}_claimed", achievement.rewardClaimed ? 1 : 0);
+            PlayerPrefs.SetInt($"ach_{achievement.id}_value", achievement.currentValue);
         }
         PlayerPrefs.Save();
     }
 
-    private void LoadAchievements()
+    private void ShowNotification(string message)
     {
-        foreach (var ach in achievements)
+        if (achievementNotificationPanel != null && achievementNotificationText != null)
         {
-            ach.currentValue = PlayerPrefs.GetInt($"{ach.id}_current", 0);
-            ach.isUnlocked = PlayerPrefs.GetInt($"{ach.id}_unlocked", 0) == 1;
-            ach.rewardClaimed = PlayerPrefs.GetInt($"{ach.id}_claimed", 0) == 1;
+            StopAllCoroutines();
+            StartCoroutine(ShowNotificationRoutine(message));
         }
+    }
+
+    private IEnumerator ShowNotificationRoutine(string message)
+    {
+        achievementNotificationPanel.SetActive(true);
+        achievementNotificationText.text = message;
+
+        yield return new WaitForSeconds(notificationDuration);
+
+        achievementNotificationPanel.SetActive(false);
     }
 }

@@ -3306,21 +3306,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievements:
   - id: click_100
-    title: make 100 clicks
+    title: 100 clicks
     targetValue: 100
     rewardCoins: 10
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
   - id: click_1000
-    title: make 1000 clicks
+    title: 1000 clicks
     targetValue: 1000
     rewardCoins: 100
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
   - id: click_10000
-    title: make 10000 clicks
+    title: 10000 clicks
     targetValue: 10000
     rewardCoins: 1000
     isUnlocked: 0

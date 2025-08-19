@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -18,6 +19,8 @@ public class AchievementManager : MonoBehaviour
     public List<Achievement> achievements = new List<Achievement>();
     private const string CoinsKey = "coins";
 
+    public static event Action<Achievement> OnAchievementUnlocked;
+
     void Awake()
     {
         LoadAchievements();
@@ -34,6 +37,8 @@ public class AchievementManager : MonoBehaviour
                 {
                     ach.isUnlocked = true;
                     Debug.Log($"Achievement unlocked: {ach.title}");
+
+                    OnAchievementUnlocked?.Invoke(ach);
                 }
             }
         }

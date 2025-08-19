@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 50
   rotationSpeed: 100
+  coinPrefab: {fileID: 1923395959712443219}
 --- !u!135 &1606768760178655127
 SphereCollider:
   m_ObjectHideFlags: 0

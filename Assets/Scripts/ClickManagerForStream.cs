@@ -22,7 +22,7 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private AudioSource specialAudioSource;
     [SerializeField] private string waveTrigger = "Wave";
 
-    [Header("Text`s")]
+    [Header("UI Texts")]
     public Text likesText;
     public Text followersText;
     public Text coinsText;
@@ -63,7 +63,6 @@ public class ClickManagerForStream : MonoBehaviour
             {
                 followers++;
 
-                // 🔑 Тепер монети зберігаємо в PlayerPrefs
                 int coins = PlayerPrefs.GetInt(CoinsKey, 0);
                 coins += coinBonusPerFollower;
                 PlayerPrefs.SetInt(CoinsKey, coins);

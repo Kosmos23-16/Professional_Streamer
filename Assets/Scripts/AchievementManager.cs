@@ -53,11 +53,6 @@ public class AchievementManager : MonoBehaviour
                 PlayerPrefs.Save();
 
                 Debug.Log($"Reward claimed: +{ach.rewardCoins} coins");
-                ClickManagerForStream streamManager = FindObjectOfType<ClickManagerForStream>();
-                if (streamManager != null)
-                {
-                    streamManager.RefreshCoins();
-                }
             }
         }
         SaveAchievements();

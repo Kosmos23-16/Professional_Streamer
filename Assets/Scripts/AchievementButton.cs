@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class AchievementButton : MonoBehaviour
@@ -18,6 +18,11 @@ public class AchievementButton : MonoBehaviour
         if (manager != null)
         {
             manager.ClaimReward(achievementId);
+
+            // ✅ одразу оновлюємо UI після отримання монет
+            FindObjectOfType<ClickManagerForStream>()?.RefreshCoins();
+            FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
+
             UpdateInteractable();
         }
     }

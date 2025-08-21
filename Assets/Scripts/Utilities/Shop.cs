@@ -8,17 +8,29 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private Text priceText;
 
+    [Header("Об'єкти")]
+    [SerializeField] private GameObject standartItem; // стандарт
+    [SerializeField] private GameObject buyItem;      // куплений предмет
+
     private const string CoinsKey = "coins";
     private string PurchasedKey => $"shop_item_{itemID}_purchased";
 
     void Start()
     {
-        priceText.text = itemPrice + " $";
-        buyButton.onClick.AddListener(BuyItem);
+        // Якщо є кнопка — міняємо текст і підписуємо метод
+        if (priceText != null) priceText.text = itemPrice + " $";
+        if (buyButton != null) buyButton.onClick.AddListener(BuyItem);
 
+        // Відновлюємо стан з PlayerPrefs
         if (IsPurchased())
         {
             MarkAsPurchased();
+            ActivatePurchasedItem();
+        }
+        else
+        {
+            if (standartItem != null) standartItem.SetActive(true);
+            if (buyItem != null) buyItem.SetActive(false);
         }
     }
 
@@ -28,25 +40,22 @@ public class Shop : MonoBehaviour
 
         if (currentCoins >= itemPrice && !IsPurchased())
         {
-
             currentCoins -= itemPrice;
             PlayerPrefs.SetInt(CoinsKey, currentCoins);
 
-  
             PlayerPrefs.SetInt(PurchasedKey, 1);
             PlayerPrefs.Save();
 
-   
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
 
-
             MarkAsPurchased();
+            ActivatePurchasedItem();
 
-            Debug.Log($"{itemID} ������� �� {itemPrice} �����.");
+            Debug.Log($"{itemID} куплений за {itemPrice} монет.");
         }
         else
         {
-            Debug.Log("����������� ����� ��� ������� ��� �������.");
+            Debug.Log("Недостатньо монет або предмет вже куплений.");
         }
     }
 
@@ -57,7 +66,13 @@ public class Shop : MonoBehaviour
 
     private void MarkAsPurchased()
     {
-        buyButton.interactable = false;
-        priceText.text = "Purchased";
+        if (buyButton != null) buyButton.interactable = false;
+        if (priceText != null) priceText.text = "Purchased";
+    }
+
+    private void ActivatePurchasedItem()
+    {
+        if (standartItem != null) standartItem.SetActive(false);
+        if (buyItem != null) buyItem.SetActive(true);
     }
 }

@@ -1365,6 +1365,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106155932}
   m_CullTransparentMesh: 1
+--- !u!1 &112482652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ee49971b8413694db7c38228ee5765e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1986091349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123244213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,10 +5834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 7000
-  itemID: buff_coin_1
+  itemPrice: 4000
+  itemID: camera
   buyButton: {fileID: 1529382674}
   priceText: {fileID: 753517807}
+  standartItem: {fileID: 0}
+  buyItem: {fileID: 0}
 --- !u!1 &753517805
 GameObject:
   m_ObjectHideFlags: 0
@@ -6660,50 +6668,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829791389}
   m_CullTransparentMesh: 1
---- !u!1 &838851659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 838851661}
-  - component: {fileID: 838851660}
-  m_Layer: 0
-  m_Name: BuffManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &838851660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838851659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd24d010a6b007441b68e71f819645ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &838851661
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838851659}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9698806, y: -0.82725716, z: 7.282813}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901708736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867844372
 GameObject:
   m_ObjectHideFlags: 0
@@ -6793,9 +6757,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 3000
-  itemID: buff_coin_1
+  itemID: headphones
   buyButton: {fileID: 1109508135}
   priceText: {fileID: 768853606}
+  standartItem: {fileID: 0}
+  buyItem: {fileID: 0}
 --- !u!1 &876048378
 GameObject:
   m_ObjectHideFlags: 0
@@ -8351,6 +8317,12 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1156516784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 818022b62100ebf49847edd24f5804f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 397919092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1159608714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11494,6 +11466,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456801699}
   m_CullTransparentMesh: 1
+--- !u!1 &1460650026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 745d1a9a3c51f7840a0a551a53e8e057,
+    type: 3}
+  m_PrefabInstance: {fileID: 604291848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1465642286
 GameObject:
   m_ObjectHideFlags: 0
@@ -12164,6 +12142,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550147775}
   m_CullTransparentMesh: 1
+--- !u!1 &1553733498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c349b1f3399c43646883a7e5773e8086,
+    type: 3}
+  m_PrefabInstance: {fileID: 1735942707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564423004
 GameObject:
   m_ObjectHideFlags: 0
@@ -12848,9 +12832,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 5000
-  itemID: buff_click_1
+  itemID: monitor
   buyButton: {fileID: 686788963}
   priceText: {fileID: 1399225330}
+  standartItem: {fileID: 1553733498}
+  buyItem: {fileID: 112482652}
 --- !u!1 &1641907535
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,6 +12966,8 @@ MonoBehaviour:
   itemID: buff_click_1
   buyButton: {fileID: 106155934}
   priceText: {fileID: 123244215}
+  standartItem: {fileID: 0}
+  buyItem: {fileID: 0}
 --- !u!114 &1648869092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14104,7 +14092,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 838851661}
   - {fileID: 137172507}
   - {fileID: 2000818494}
   - {fileID: 1246889589}
@@ -14553,6 +14540,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07aae0ae09efdbb43aa9242a66c825e4, type: 3}
+--- !u!1 &1975757644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce4c07d71d6993c408b0a0c02034154e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220020418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1977047123
 GameObject:
   m_ObjectHideFlags: 0
@@ -14570,7 +14563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1977047124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14799,10 +14792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 2000
-  itemID: buff_click_1
+  itemPrice: 3000
+  itemID: mouse
   buyButton: {fileID: 193969570}
   priceText: {fileID: 771080098}
+  standartItem: {fileID: 350999742}
+  buyItem: {fileID: 1460650026}
 --- !u!1001 &1986091349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15423,9 +15418,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrice: 3000
-  itemID: buff_click_1
+  itemID: keyboard
   buyButton: {fileID: 706336}
   priceText: {fileID: 1465642288}
+  standartItem: {fileID: 1156516784}
+  buyItem: {fileID: 1975757644}
 --- !u!1001 &2016306616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16319,10 +16316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15e75417a121540abae66e23c1c60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 4000
-  itemID: buff_follower_easy
+  itemPrice: 3000
+  itemID: micro
   buyButton: {fileID: 1806937234}
   priceText: {fileID: 182510101}
+  standartItem: {fileID: 0}
+  buyItem: {fileID: 0}
 --- !u!1001 &2105107859
 PrefabInstance:
   m_ObjectHideFlags: 0

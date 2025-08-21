@@ -27,6 +27,14 @@ public class ClickManagerForStream : MonoBehaviour
     public Text followersText;
     public Text coinsText;
 
+    // 🔥 Баффи (можна змінювати)
+    private int likeBonus = 1;              // скільки лайків дає один клік
+    private int followerLikeThreshold = 30; // скільки лайків треба на одного фолловера
+    private int coinBonusPerFollower = 100; // скільки монет дає один фолловер
+
+    private float likeMultiplier = 1f;      // множник лайків (з предметів)
+    private float coinMultiplier = 1f;      // множник монет (з предметів)
+
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
     private bool unlocked2 = false;
@@ -39,20 +47,19 @@ public class ClickManagerForStream : MonoBehaviour
     private void Start()
     {
         LoadData();
+        LoadBuffs();   // 👈 підтягуємо баффи з покупок
         CheckUnlocks();
         RefreshCoins();
     }
 
     public void ButtonClick()
     {
-        int likeBonus = 1;
-        int followerLikeThreshold = 30;
-        int coinBonusPerFollower = 100;
+        // враховуємо бафф до лайків
+        int gainedLikes = Mathf.RoundToInt(likeBonus * likeMultiplier);
+        likes += gainedLikes;
+        likesToNextFollower += gainedLikes;
 
-        likes += likeBonus;
-        likesToNextFollower += likeBonus;
-
-        FindObjectOfType<AchievementManager>()?.AddProgress("click_100", likeBonus);
+        FindObjectOfType<AchievementManager>()?.AddProgress("click_100", gainedLikes);
 
         if (likesToNextFollower >= followerLikeThreshold)
         {
@@ -64,7 +71,8 @@ public class ClickManagerForStream : MonoBehaviour
                 followers++;
 
                 int coins = PlayerPrefs.GetInt(CoinsKey, 0);
-                coins += coinBonusPerFollower;
+                int gainedCoins = Mathf.RoundToInt(coinBonusPerFollower * coinMultiplier);
+                coins += gainedCoins;
                 PlayerPrefs.SetInt(CoinsKey, coins);
                 PlayerPrefs.Save();
 
@@ -166,5 +174,40 @@ public class ClickManagerForStream : MonoBehaviour
         {
             coinsText.text = PlayerPrefs.GetInt(CoinsKey, 0).ToString();
         }
+    }
+
+    private void LoadBuffs()
+    {
+        if (PlayerPrefs.GetInt("shop_item_mouse_purchased", 0) == 1)
+        {
+            likeMultiplier += 1f;
+        }
+
+        if (PlayerPrefs.GetInt("shop_item_keyboard_purchased", 0) == 1)
+        {
+            likeMultiplier += 1f;
+        }
+
+        if (PlayerPrefs.GetInt("shop_item_monitor_purchased", 0) == 1)
+        {
+            likeMultiplier += 3f;
+        }
+
+        if (PlayerPrefs.GetInt("shop_item_camera_purchased", 0) == 1)
+        {
+            likeMultiplier += 2f;
+        }
+
+        if (PlayerPrefs.GetInt("shop_item_micro_purchased", 0) == 1)
+        {
+            likeMultiplier += 1f;
+        }
+
+        if (PlayerPrefs.GetInt("shop_item_headphones_purchased", 0) == 1)
+        {
+            likeMultiplier += 1f;
+        }
+
+        Debug.Log($"Баффи завантажені: likeMultiplier={likeMultiplier}, coinMultiplier={coinMultiplier}");
     }
 }

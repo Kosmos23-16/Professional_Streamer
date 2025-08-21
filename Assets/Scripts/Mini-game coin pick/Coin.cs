@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
+            Destroy(gameObject);
             int currentCoins = PlayerPrefs.GetInt("coins", 0);
             currentCoins += coinValue;
             PlayerPrefs.SetInt("coins", currentCoins);
@@ -27,7 +27,6 @@ public class Coin : MonoBehaviour
                 display.RefreshCoinsUI();
             }
 
-            Destroy(gameObject);
         }
     }
 }

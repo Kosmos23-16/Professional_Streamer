@@ -6345,6 +6345,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &814401606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14260,8 +14272,8 @@ RectTransform:
   - {fileID: 289580113}
   - {fileID: 1253093360}
   - {fileID: 179746175}
-  - {fileID: 814401604}
   - {fileID: 1992494049}
+  - {fileID: 814401604}
   - {fileID: 1111362894}
   m_Father: {fileID: 1142371237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

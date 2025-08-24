@@ -1619,6 +1619,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 195400932}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 814401603}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &179746177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,6 +2045,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193969568}
   m_CullTransparentMesh: 1
+--- !u!1 &195400932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5579289032236927806, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+    type: 3}
+  m_PrefabInstance: {fileID: 1992494048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &230875398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,7 +3540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &402049384
 Transform:
   m_ObjectHideFlags: 0
@@ -6345,6 +6375,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 195400932}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 179746174}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: 
@@ -8534,7 +8588,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ac6faa90802514841ad83ad647170024,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325039656767270722, guid: ac6faa90802514841ad83ad647170024,
         type: 3}
@@ -9261,7 +9315,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 23503d82546151040a666d3c96b7b418,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325039656767270722, guid: 23503d82546151040a666d3c96b7b418,
         type: 3}
@@ -9376,6 +9430,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 195400932}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 814401603}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1250557531
 MonoBehaviour:
@@ -13015,7 +13093,7 @@ MonoBehaviour:
   m_Text: "is an engaging 3D idle simulator where you start your streaming career
     from scratch \u2014 with an old laptop, an empty room, and big ambitions. Click
     to go live, attract viewers, earn donations, and gradually build your digital
-    empire on the fictional MyTube platform.\r\n\r\nUpgrade your gear, customize
+    empire on the fictional TWISTER platform.\r\n\r\nUpgrade your gear, customize
     your room, level up your skills, create memes and videos, land sponsorship deals,
     and compete for the title of the world\u2019s #1 streamer.\r\n\r\nThe game features
     a vibrant low-poly art style, humor, and the authentic vibe of streaming culture.
@@ -14964,7 +15042,12 @@ PrefabInstance:
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
@@ -14975,7 +15058,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1992494051}
+      objectReference: {fileID: 814401603}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 814401603}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -14984,7 +15077,12 @@ PrefabInstance:
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ButtonClick
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
@@ -14994,7 +15092,12 @@ PrefabInstance:
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: MenuSound, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
@@ -15009,6 +15112,11 @@ PrefabInstance:
     - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499240623102110789, guid: 7a5b26c5ae01f49478850b3ac5faca08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8014677165129524149, guid: 7a5b26c5ae01f49478850b3ac5faca08,
@@ -15053,18 +15161,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1992494048}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1992494051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2918708136107441275, guid: 7a5b26c5ae01f49478850b3ac5faca08,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992494048}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee398269359e3c449ac06735a6323c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1998233808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15415,7 +15511,7 @@ PrefabInstance:
     - target: {fileID: 8338921351693755414, guid: bbb1c4243e39d764699480c33a9e4810,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8715059449755090604, guid: bbb1c4243e39d764699480c33a9e4810,
         type: 3}
@@ -15675,6 +15771,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 814401603}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2061869089
 MonoBehaviour:
@@ -16505,6 +16613,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 195400932}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 179746174}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2133650547
 MonoBehaviour:

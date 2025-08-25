@@ -1636,17 +1636,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
-  - id: click_100
-    title: 100 clicks
-    targetValue: 100
-    rewardCoins: 10
-    isUnlocked: 0
-    rewardClaimed: 0
-    currentValue: 0
   - id: click_1000
     title: 1000 clicks
     targetValue: 1000
     rewardCoins: 100
+    rewardObject: {fileID: 395960629}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -1654,6 +1648,15 @@ MonoBehaviour:
     title: 10000 clicks
     targetValue: 10000
     rewardCoins: 1000
+    rewardObject: {fileID: 1012827610}
+    isUnlocked: 0
+    rewardClaimed: 0
+    currentValue: 0
+  - id: click_100000
+    title: 100000 clicks
+    targetValue: 100000
+    rewardCoins: 10000
+    rewardObject: {fileID: 895346570}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -6403,8 +6406,8 @@ SceneRoots:
   - {fileID: 1163879079}
   - {fileID: 1506163160}
   - {fileID: 1125331507}
-  - {fileID: 1839238136}
   - {fileID: 2111144013030232351}
   - {fileID: 1651414376}
   - {fileID: 834789952}
   - {fileID: 1525925435}
+  - {fileID: 1839238136}

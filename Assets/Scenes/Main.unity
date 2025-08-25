@@ -3539,17 +3539,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
-  - id: click_100
-    title: 100 clicks
-    targetValue: 100
-    rewardCoins: 10
-    isUnlocked: 0
-    rewardClaimed: 0
-    currentValue: 0
   - id: click_1000
     title: 1000 clicks
     targetValue: 1000
     rewardCoins: 100
+    rewardObject: {fileID: 1946530369}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -3557,6 +3551,15 @@ MonoBehaviour:
     title: 10000 clicks
     targetValue: 10000
     rewardCoins: 1000
+    rewardObject: {fileID: 236092885}
+    isUnlocked: 0
+    rewardClaimed: 0
+    currentValue: 0
+  - id: click_100000
+    title: 100000 clicks
+    targetValue: 100000
+    rewardCoins: 10000
+    rewardObject: {fileID: 1250271828}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -6449,8 +6452,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1520016144}
-  - {fileID: 88077861}
   - {fileID: 625093983}
+  - {fileID: 88077861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808427245
@@ -9936,6 +9939,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23503d82546151040a666d3c96b7b418, type: 3}
+--- !u!1 &1250271828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23503d82546151040a666d3c96b7b418,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250271827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250557528
 GameObject:
   m_ObjectHideFlags: 0
@@ -10225,7 +10234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.71927893}
   m_AnchorMax: {x: 0.316, y: 1}
-  m_AnchoredPosition: {x: 125.8, y: -163.2}
+  m_AnchoredPosition: {x: 125.8, y: -163.20001}
   m_SizeDelta: {x: 178.48, y: -145.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254353530

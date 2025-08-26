@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 23497242}
   - component: {fileID: 23497241}
   m_Layer: 0
-  m_Name: 10000
+  m_Name: 100000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08232995b7a676f439a3f2f18540e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementId: click_10000
+  achievementId: click_100000
 --- !u!114 &23497242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 50891086}
   - component: {fileID: 50891085}
   m_Layer: 0
-  m_Name: 1000
+  m_Name: 10000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08232995b7a676f439a3f2f18540e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementId: click_1000
+  achievementId: click_10000
 --- !u!114 &50891086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Make 100 clicks
+  m_Text: Make 1000 clicks
 --- !u!222 &206991580
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4670,7 +4670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Make 1000 clicks
+  m_Text: Make 10000 clicks
 --- !u!222 &586091967
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7088,7 +7088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Make 10000 clicks
+  m_Text: Make 100000 clicks
 --- !u!222 &849072301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7630,7 +7630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08232995b7a676f439a3f2f18540e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievementId: click_100
+  achievementId: click_1000
 --- !u!114 &935687554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10624,7 +10624,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Achievments
+  m_Text: Achievements
 --- !u!222 &1354349522
 CanvasRenderer:
   m_ObjectHideFlags: 0

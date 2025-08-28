@@ -8,20 +8,18 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private Text priceText;
 
-    [Header("Об'єкти")]
-    [SerializeField] private GameObject standartItem; // стандарт
-    [SerializeField] private GameObject buyItem;      // куплений предмет
+    [Header("🔹 Варіант 1: Заміна об'єкта")]
+    [SerializeField] private GameObject standartItem;
+    [SerializeField] private GameObject buyItem;
 
     private const string CoinsKey = "coins";
     private string PurchasedKey => $"shop_item_{itemID}_purchased";
 
     void Start()
     {
-        // Якщо є кнопка — міняємо текст і підписуємо метод
         if (priceText != null) priceText.text = itemPrice + " $";
         if (buyButton != null) buyButton.onClick.AddListener(BuyItem);
 
-        // Відновлюємо стан з PlayerPrefs
         if (IsPurchased())
         {
             MarkAsPurchased();
@@ -72,6 +70,7 @@ public class Shop : MonoBehaviour
 
     private void ActivatePurchasedItem()
     {
+
         if (standartItem != null) standartItem.SetActive(false);
         if (buyItem != null) buyItem.SetActive(true);
     }

@@ -27,13 +27,12 @@ public class ClickManagerForStream : MonoBehaviour
     public Text followersText;
     public Text coinsText;
 
-    // 🔥 Баффи (можна змінювати)
-    private int likeBonus = 1;              // скільки лайків дає один клік
-    private int followerLikeThreshold = 30; // скільки лайків треба на одного фолловера
-    private int coinBonusPerFollower = 100; // скільки монет дає один фолловер
+    private int likeBonus = 1;
+    private int followerLikeThreshold = 50;
+    private int coinBonusPerFollower = 100;
 
-    private float likeMultiplier = 1f;      // множник лайків (з предметів)
-    private float coinMultiplier = 1f;      // множник монет (з предметів)
+    private float likeMultiplier = 1f;
+    private float coinMultiplier = 1f;
 
     private int likesToNextFollower = 0;
     private bool unlocked1 = false;
@@ -47,14 +46,13 @@ public class ClickManagerForStream : MonoBehaviour
     private void Start()
     {
         LoadData();
-        LoadBuffs();   // 👈 підтягуємо баффи з покупок
+        LoadBuffs();
         CheckUnlocks();
         RefreshCoins();
     }
 
     public void ButtonClick()
     {
-        // враховуємо бафф до лайків
         int gainedLikes = Mathf.RoundToInt(likeBonus * likeMultiplier);
         likes += gainedLikes;
         likesToNextFollower += gainedLikes;

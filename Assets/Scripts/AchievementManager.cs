@@ -11,7 +11,7 @@ public class Achievement
     public int rewardCoins;
 
     [Header("Optional Reward Object")]
-    public GameObject rewardObject; // 🔹 Об'єкт, який стане активним після отримання нагороди
+    public GameObject rewardObject;
 
     public bool isUnlocked;
     public bool rewardClaimed;
@@ -57,12 +57,10 @@ public class AchievementManager : MonoBehaviour
             {
                 ach.rewardClaimed = true;
 
-                // 🔹 Додаємо монети
                 int coins = PlayerPrefs.GetInt(CoinsKey, 0);
                 coins += ach.rewardCoins;
                 PlayerPrefs.SetInt(CoinsKey, coins);
 
-                // 🔹 Активуємо об’єкт
                 if (ach.rewardObject != null)
                 {
                     ach.rewardObject.SetActive(true);

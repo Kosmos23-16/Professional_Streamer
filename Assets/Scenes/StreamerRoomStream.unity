@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageText: {fileID: 350942628}
-  showTime: 2
+  showTime: 5
 --- !u!1001 &262772708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23300515, g: 0.8037735, b: 0.16833748, a: 1}
+  m_Color: {r: 0.16745149, g: 0.90188676, b: 0.03913838, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1018,7 +1018,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
@@ -1636,11 +1636,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
+  - id: click_100
+    title: 100 clicks
+    targetValue: 100
+    rewardCoins: 10
+    rewardObject: {fileID: 395960629}
+    isUnlocked: 0
+    rewardClaimed: 0
+    currentValue: 0
   - id: click_1000
     title: 1000 clicks
     targetValue: 1000
     rewardCoins: 100
-    rewardObject: {fileID: 395960629}
+    rewardObject: {fileID: 1012827610}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -1648,14 +1656,6 @@ MonoBehaviour:
     title: 10000 clicks
     targetValue: 10000
     rewardCoins: 1000
-    rewardObject: {fileID: 1012827610}
-    isUnlocked: 0
-    rewardClaimed: 0
-    currentValue: 0
-  - id: click_100000
-    title: 100000 clicks
-    targetValue: 100000
-    rewardCoins: 10000
     rewardObject: {fileID: 895346570}
     isUnlocked: 0
     rewardClaimed: 0

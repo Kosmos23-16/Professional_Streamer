@@ -29,7 +29,7 @@ public class ClickManagerForStream : MonoBehaviour
 
     // 🔥 Баффи (можна змінювати)
     private int likeBonus = 1;              // скільки лайків дає один клік
-    private int followerLikeThreshold = 30; // скільки лайків треба на одного фолловера
+    private int followerLikeThreshold = 50; // скільки лайків треба на одного фолловера
     private int coinBonusPerFollower = 100; // скільки монет дає один фолловер
 
     private float likeMultiplier = 1f;      // множник лайків (з предметів)

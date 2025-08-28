@@ -1,111 +1,78 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[DefaultExecutionOrder(200)] // цей скрипт спрацює ПІСЛЯ більшості інших Start
-[DisallowMultipleComponent]
 public class Shop : MonoBehaviour
 {
-    [Header("Item")]
-    [SerializeField] private int itemPrice = 0;
-    [SerializeField] private string itemID = "mouse";
-
-    [Header("UI")]
+    [SerializeField] private int itemPrice;
+    [SerializeField] private string itemID;
     [SerializeField] private Button buyButton;
     [SerializeField] private Text priceText;
 
-    [Header("Модельки")]
-    [SerializeField] private GameObject standartItem; // 0
-    [SerializeField] private GameObject buyItem;      // 1
+    [Header("Об'єкти")]
+    [SerializeField] private GameObject standartItem; // стандарт
+    [SerializeField] private GameObject buyItem;      // куплений предмет
 
-    private void Awake()
-    {
-        // гарантія, що менеджер існує навіть якщо ти його не ставив у сцену
-        System.Type t = typeof(ShopManager); // торкнутись типу, щоб спрацював EnsureCreatedEarly
-    }
+    private const string CoinsKey = "coins";
+    private string PurchasedKey => $"shop_item_{itemID}_purchased";
 
-    private void Start()
+    void Start()
     {
+        // Якщо є кнопка — міняємо текст і підписуємо метод
         if (priceText != null) priceText.text = itemPrice + " $";
-        if (buyButton != null)
+        if (buyButton != null) buyButton.onClick.AddListener(BuyItem);
+
+        // Відновлюємо стан з PlayerPrefs
+        if (IsPurchased())
         {
-            buyButton.onClick.RemoveAllListeners();
-            buyButton.onClick.AddListener(BuyItem);
+            MarkAsPurchased();
+            ActivatePurchasedItem();
         }
-
-        // 1) миттєво відновимо
-        RestoreState();
-        // 2) ще раз у наступному кадрі — щоб перекрити сторонні скрипти, які міняють активність у Start
-        StartCoroutine(RestoreNextFrame());
-    }
-
-    private void OnEnable()
-    {
-        // На випадок повторної активації об'єкта
-        RestoreState();
-    }
-
-    private IEnumerator RestoreNextFrame()
-    {
-        yield return null; // почекати 1 кадр
-        RestoreState();
+        else
+        {
+            if (standartItem != null) standartItem.SetActive(true);
+            if (buyItem != null) buyItem.SetActive(false);
+        }
     }
 
     private void BuyItem()
     {
-        var mgr = ShopManager.Instance;
-        if (mgr == null) { Debug.LogError("ShopManager не знайдено"); return; }
+        int currentCoins = PlayerPrefs.GetInt(CoinsKey, 0);
 
-        if (mgr.TryBuyItem(itemID, itemPrice))
+        if (currentCoins >= itemPrice && !IsPurchased())
         {
-            MarkAsPurchasedUI();
-            SetModelActive(1); // куплена модель
+            currentCoins -= itemPrice;
+            PlayerPrefs.SetInt(CoinsKey, currentCoins);
 
-            // Оновити монети, якщо маєш UI-скрипт
+            PlayerPrefs.SetInt(PurchasedKey, 1);
+            PlayerPrefs.Save();
+
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
+
+            MarkAsPurchased();
+            ActivatePurchasedItem();
 
             Debug.Log($"{itemID} куплений за {itemPrice} монет.");
         }
         else
         {
-            if (mgr.IsPurchased(itemID))
-                Debug.Log($"{itemID} вже куплений.");
-            else
-                Debug.Log("Недостатньо монет.");
+            Debug.Log("Недостатньо монет або предмет вже куплений.");
         }
     }
 
-    private void RestoreState()
+    private bool IsPurchased()
     {
-        var mgr = ShopManager.Instance;
-        if (mgr == null) return;
-
-        bool purchased = mgr.IsPurchased(itemID);
-        int modelState = mgr.GetActiveModelState(itemID); // 0=стандарт, 1=куплений
-
-        if (purchased) MarkAsPurchasedUI();
-        SetModelActive(modelState);
+        return PlayerPrefs.GetInt(PurchasedKey, 0) == 1;
     }
 
-    private void MarkAsPurchasedUI()
+    private void MarkAsPurchased()
     {
         if (buyButton != null) buyButton.interactable = false;
         if (priceText != null) priceText.text = "Purchased";
     }
 
-    private void SetModelActive(int state01)
+    private void ActivatePurchasedItem()
     {
-        bool useBought = state01 > 0;
-
-        // Перемикаємо модельки
-        if (standartItem != null) standartItem.SetActive(!useBought);
-        if (buyItem != null) buyItem.SetActive(useBought);
-
-        // Зберігаємо вибір
-        ShopManager.Instance?.SetActiveModelState(itemID, useBought ? 1 : 0);
+        if (standartItem != null) standartItem.SetActive(false);
+        if (buyItem != null) buyItem.SetActive(true);
     }
-
-    // (необов'язково) викликати з кнопки "Використати стандартний / куплений"
-    public void UseStandardModel() => SetModelActive(0);
-    public void UsePurchasedModel() => SetModelActive(1);
 }

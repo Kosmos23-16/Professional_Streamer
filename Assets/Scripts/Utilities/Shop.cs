@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private int itemPrice;
+    [SerializeField] private int basePrice = 1000;
     [SerializeField] private string itemID;
     [SerializeField] private Button buyButton;
     [SerializeField] private Text priceText;
@@ -13,17 +13,75 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject buyItem;
 
     private const string CoinsKey = "coins";
-    private string PurchasedKey => $"shop_item_{itemID}_purchased";
+    private int maxLevel = 3;
+
+    private string LevelKey => $"shop_item_{itemID}_level";
 
     void Start()
     {
-        if (priceText != null) priceText.text = itemPrice + " $";
         if (buyButton != null) buyButton.onClick.AddListener(BuyItem);
+        UpdateUI();
+    }
 
-        if (IsPurchased())
+    private void BuyItem()
+    {
+        int currentCoins = PlayerPrefs.GetInt(CoinsKey, 0);
+        int currentLevel = PlayerPrefs.GetInt(LevelKey, 0);
+
+        if (currentLevel >= maxLevel)
         {
-            MarkAsPurchased();
-            ActivatePurchasedItem();
+            Debug.Log($"{itemID} вже максимального рівня.");
+            return;
+        }
+
+        int price = GetPrice(currentLevel);
+
+        if (currentCoins >= price)
+        {
+            currentCoins -= price;
+            PlayerPrefs.SetInt(CoinsKey, currentCoins);
+
+            currentLevel++;
+            PlayerPrefs.SetInt(LevelKey, currentLevel);
+            PlayerPrefs.Save();
+
+            FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
+
+            Debug.Log($"{itemID} прокачаний до {currentLevel} рівня за {price} монет.");
+        }
+        else
+        {
+            Debug.Log("Недостатньо монет.");
+        }
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        int currentCoins = PlayerPrefs.GetInt(CoinsKey, 0);
+        int currentLevel = PlayerPrefs.GetInt(LevelKey, 0);
+
+        if (currentLevel >= maxLevel)
+        {
+            if (priceText != null) priceText.text = "Max Level";
+            if (buyButton != null) buyButton.interactable = false;
+
+            if (standartItem != null) standartItem.SetActive(false);
+            if (buyItem != null) buyItem.SetActive(true);
+
+            return;
+        }
+
+        int price = GetPrice(currentLevel);
+        if (priceText != null) priceText.text = $"{price} $";
+
+        if (buyButton != null) buyButton.interactable = (currentCoins >= price);
+
+        if (currentLevel > 0)
+        {
+            if (standartItem != null) standartItem.SetActive(false);
+            if (buyItem != null) buyItem.SetActive(true);
         }
         else
         {
@@ -32,46 +90,8 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void BuyItem()
+    private int GetPrice(int level)
     {
-        int currentCoins = PlayerPrefs.GetInt(CoinsKey, 0);
-
-        if (currentCoins >= itemPrice && !IsPurchased())
-        {
-            currentCoins -= itemPrice;
-            PlayerPrefs.SetInt(CoinsKey, currentCoins);
-
-            PlayerPrefs.SetInt(PurchasedKey, 1);
-            PlayerPrefs.Save();
-
-            FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
-
-            MarkAsPurchased();
-            ActivatePurchasedItem();
-
-            Debug.Log($"{itemID} куплений за {itemPrice} монет.");
-        }
-        else
-        {
-            Debug.Log("Недостатньо монет або предмет вже куплений.");
-        }
-    }
-
-    private bool IsPurchased()
-    {
-        return PlayerPrefs.GetInt(PurchasedKey, 0) == 1;
-    }
-
-    private void MarkAsPurchased()
-    {
-        if (buyButton != null) buyButton.interactable = false;
-        if (priceText != null) priceText.text = "Purchased";
-    }
-
-    private void ActivatePurchasedItem()
-    {
-
-        if (standartItem != null) standartItem.SetActive(false);
-        if (buyItem != null) buyItem.SetActive(true);
+        return basePrice + (level * 1000);
     }
 }

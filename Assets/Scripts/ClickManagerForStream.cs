@@ -176,36 +176,17 @@ public class ClickManagerForStream : MonoBehaviour
 
     private void LoadBuffs()
     {
-        if (PlayerPrefs.GetInt("shop_item_mouse_purchased", 0) == 1)
-        {
-            likeMultiplier += 1f;
-        }
+        likeMultiplier = 1f;
 
-        if (PlayerPrefs.GetInt("shop_item_keyboard_purchased", 0) == 1)
-        {
-            likeMultiplier += 1f;
-        }
-
-        if (PlayerPrefs.GetInt("shop_item_monitor_purchased", 0) == 1)
-        {
-            likeMultiplier += 3f;
-        }
-
-        if (PlayerPrefs.GetInt("shop_item_camera_purchased", 0) == 1)
-        {
-            likeMultiplier += 2f;
-        }
-
-        if (PlayerPrefs.GetInt("shop_item_micro_purchased", 0) == 1)
-        {
-            likeMultiplier += 1f;
-        }
-
-        if (PlayerPrefs.GetInt("shop_item_headphones_purchased", 0) == 1)
-        {
-            likeMultiplier += 1f;
-        }
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_mouse_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_keyboard_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_monitor_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_camera_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_micro_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_headphones_level", 0) * 1f;
+        likeMultiplier += PlayerPrefs.GetInt("shop_item_chair_level", 0) * 1f;
 
         Debug.Log($"Баффи завантажені: likeMultiplier={likeMultiplier}, coinMultiplier={coinMultiplier}");
     }
+
 }

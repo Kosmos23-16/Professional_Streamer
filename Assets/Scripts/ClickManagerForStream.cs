@@ -16,6 +16,10 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private GameObject rewardFigure2;
     [SerializeField] private GameObject rewardFigure3;
 
+    [SerializeField] private GameObject rewardMarker1;
+    [SerializeField] private Sprite rewardMarker2;
+    [SerializeField] private Sprite rewardMarker3;
+
     [Header("Animation & Sound")]
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource normalAudioSource;
@@ -87,6 +91,7 @@ public class ClickManagerForStream : MonoBehaviour
     {
         if (!unlocked1 && followers >= unlockAtFollowers)
         {
+            rewardMarker1?.SetActive(true);
             rewardFigure1?.SetActive(true);
             unlocked1 = true;
         }

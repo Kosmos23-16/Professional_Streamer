@@ -4,31 +4,22 @@ using UnityEngine.UI;
 public class AchievementButton : MonoBehaviour
 {
     public string achievementId;
-    public Text rewardMessageText;
-    public string customMessage;
+    public Image rewardImage;
     private Button button;
 
-    private string messageKey;
+    private string imageKey;
 
     void Start()
     {
         button = GetComponent<Button>();
-        messageKey = $"{achievementId}_message";
+        imageKey = $"{achievementId}_image";
 
         UpdateInteractable();
 
-        if (rewardMessageText != null)
+        if (rewardImage != null)
         {
-            string savedMessage = PlayerPrefs.GetString(messageKey, "");
-            if (!string.IsNullOrEmpty(savedMessage))
-            {
-                rewardMessageText.text = savedMessage;
-                rewardMessageText.gameObject.SetActive(true);
-            }
-            else
-            {
-                rewardMessageText.gameObject.SetActive(false);
-            }
+            bool isShown = PlayerPrefs.GetInt(imageKey, 0) == 1;
+            rewardImage.gameObject.SetActive(isShown);
         }
     }
 
@@ -41,19 +32,18 @@ public class AchievementButton : MonoBehaviour
             FindObjectOfType<ClickManagerForStream>()?.RefreshCoins();
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
 
-            ShowRewardMessage();
+            ShowRewardImage();
             UpdateInteractable();
         }
     }
 
-    private void ShowRewardMessage()
+    private void ShowRewardImage()
     {
-        if (rewardMessageText != null)
+        if (rewardImage != null)
         {
-            rewardMessageText.text = customMessage;
-            rewardMessageText.gameObject.SetActive(true);
+            rewardImage.gameObject.SetActive(true);
 
-            PlayerPrefs.SetString(messageKey, customMessage);
+            PlayerPrefs.SetInt(imageKey, 1);
             PlayerPrefs.Save();
         }
     }

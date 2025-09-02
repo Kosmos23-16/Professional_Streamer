@@ -540,8 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementId: click_10000
-  rewardMessageText: {fileID: 1971818000}
-  customMessage: Reward 3 claimed
+  rewardImage: {fileID: 1393604571}
 --- !u!114 &23497242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,8 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementId: click_1000
-  rewardMessageText: {fileID: 534044773}
-  customMessage: Reward 2 claimed
+  rewardImage: {fileID: 175906862}
 --- !u!114 &50891086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8092,8 +8090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementId: click_100
-  rewardMessageText: {fileID: 1178467049}
-  customMessage: Reward 1 claimed
+  rewardImage: {fileID: 1856040218}
 --- !u!114 &935687554
 MonoBehaviour:
   m_ObjectHideFlags: 0

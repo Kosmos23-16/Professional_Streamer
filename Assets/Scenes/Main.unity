@@ -1609,9 +1609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   likes: 0
   followers: 0
-  unlockAtFollowers: 1000
-  unlockAtFollowers2: 100000
-  unlockAtFollowers3: 1000000
+  unlockAtFollowers: 100
+  unlockAtFollowers2: 1000
+  unlockAtFollowers3: 10000
   rewardFigure1: {fileID: 1946530369}
   rewardFigure2: {fileID: 236092885}
   rewardFigure3: {fileID: 236092885}
@@ -18461,7 +18461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463.4, y: 30.9}
+  m_AnchoredPosition: {x: -418, y: 5}
   m_SizeDelta: {x: 101.3, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133650546

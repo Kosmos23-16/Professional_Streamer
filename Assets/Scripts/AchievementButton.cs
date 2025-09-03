@@ -7,20 +7,12 @@ public class AchievementButton : MonoBehaviour
     public Image rewardImage;
     private Button button;
 
-    private string imageKey;
-
     void Start()
     {
         button = GetComponent<Button>();
-        imageKey = $"{achievementId}_image";
 
         UpdateInteractable();
 
-        if (rewardImage != null)
-        {
-            bool isShown = PlayerPrefs.GetInt(imageKey, 0) == 1;
-            rewardImage.gameObject.SetActive(isShown);
-        }
     }
 
     public void ClaimReward()
@@ -32,21 +24,10 @@ public class AchievementButton : MonoBehaviour
             FindObjectOfType<ClickManagerForStream>()?.RefreshCoins();
             FindObjectOfType<CoinsDisplay>()?.RefreshCoinsUI();
 
-            ShowRewardImage();
             UpdateInteractable();
         }
     }
 
-    private void ShowRewardImage()
-    {
-        if (rewardImage != null)
-        {
-            rewardImage.gameObject.SetActive(true);
-
-            PlayerPrefs.SetInt(imageKey, 1);
-            PlayerPrefs.Save();
-        }
-    }
 
     public void UpdateInteractable()
     {

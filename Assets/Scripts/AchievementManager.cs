@@ -10,8 +10,6 @@ public class Achievement
     public int targetValue;
     public int rewardCoins;
 
-    [Header("Optional Reward Object")]
-    public GameObject rewardObject;
 
     public bool isUnlocked;
     public bool rewardClaimed;
@@ -61,13 +59,6 @@ public class AchievementManager : MonoBehaviour
                 coins += ach.rewardCoins;
                 PlayerPrefs.SetInt(CoinsKey, coins);
 
-                if (ach.rewardObject != null)
-                {
-                    ach.rewardObject.SetActive(true);
-                    PlayerPrefs.SetInt($"{ach.rewardObject.name}_active", 1);
-                    Debug.Log($"Reward object activated: {ach.rewardObject.name}");
-                }
-
                 PlayerPrefs.Save();
                 Debug.Log($"Reward claimed: +{ach.rewardCoins} coins");
             }
@@ -83,11 +74,6 @@ public class AchievementManager : MonoBehaviour
             PlayerPrefs.SetInt($"{ach.id}_unlocked", ach.isUnlocked ? 1 : 0);
             PlayerPrefs.SetInt($"{ach.id}_claimed", ach.rewardClaimed ? 1 : 0);
 
-            if (ach.rewardObject != null)
-            {
-                int isActive = ach.rewardObject.activeSelf ? 1 : 0;
-                PlayerPrefs.SetInt($"{ach.rewardObject.name}_active", isActive);
-            }
         }
         PlayerPrefs.Save();
     }
@@ -100,11 +86,6 @@ public class AchievementManager : MonoBehaviour
             ach.isUnlocked = PlayerPrefs.GetInt($"{ach.id}_unlocked", 0) == 1;
             ach.rewardClaimed = PlayerPrefs.GetInt($"{ach.id}_claimed", 0) == 1;
 
-            if (ach.rewardObject != null)
-            {
-                bool isActive = PlayerPrefs.GetInt($"{ach.rewardObject.name}_active", 0) == 1;
-                ach.rewardObject.SetActive(isActive);
-            }
         }
     }
 }

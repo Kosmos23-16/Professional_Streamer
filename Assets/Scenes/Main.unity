@@ -1615,6 +1615,9 @@ MonoBehaviour:
   rewardFigure1: {fileID: 1946530369}
   rewardFigure2: {fileID: 236092885}
   rewardFigure3: {fileID: 236092885}
+  rewardImage1: {fileID: 1856040218}
+  rewardImage2: {fileID: 175906862}
+  rewardImage3: {fileID: 1393604571}
   animator: {fileID: 0}
   normalAudioSource: {fileID: 0}
   specialAudioSource: {fileID: 0}
@@ -3551,7 +3554,6 @@ MonoBehaviour:
     title: 100 clicks
     targetValue: 100
     rewardCoins: 10
-    rewardObject: {fileID: 1946530369}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -3559,7 +3561,6 @@ MonoBehaviour:
     title: 1000 clicks
     targetValue: 1000
     rewardCoins: 100
-    rewardObject: {fileID: 236092885}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -3567,7 +3568,6 @@ MonoBehaviour:
     title: 10000 clicks
     targetValue: 10000
     rewardCoins: 1000
-    rewardObject: {fileID: 1250271828}
     isUnlocked: 0
     rewardClaimed: 0
     currentValue: 0
@@ -8126,7 +8126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementId: click_100
-  rewardImage: {fileID: 1856040218}
+  rewardImage: {fileID: 0}
 --- !u!114 &935687554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10600,12 +10600,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23503d82546151040a666d3c96b7b418, type: 3}
---- !u!1 &1250271828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23503d82546151040a666d3c96b7b418,
-    type: 3}
-  m_PrefabInstance: {fileID: 1250271827}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250557528
 GameObject:
   m_ObjectHideFlags: 0

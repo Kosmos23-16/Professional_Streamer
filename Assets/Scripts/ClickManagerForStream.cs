@@ -16,6 +16,11 @@ public class ClickManagerForStream : MonoBehaviour
     [SerializeField] private GameObject rewardFigure2;
     [SerializeField] private GameObject rewardFigure3;
 
+    [Header("Reward UI Images")]
+    [SerializeField] private Image rewardImage1;
+    [SerializeField] private Image rewardImage2;
+    [SerializeField] private Image rewardImage3;
+
     [Header("Animation & Sound")]
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource normalAudioSource;
@@ -42,9 +47,17 @@ public class ClickManagerForStream : MonoBehaviour
     private const string LikesKey = "likes";
     private const string FollowersKey = "followers";
     private const string CoinsKey = "coins";
+    private const string Unlock1Key = "unlock1";
+    private const string Unlock2Key = "unlock2";
+    private const string Unlock3Key = "unlock3";
 
     private void Start()
     {
+        // Спочатку всі картинки вимикаємо (на випадок якщо забудеш в інспекторі)
+        rewardImage1?.gameObject.SetActive(false);
+        rewardImage2?.gameObject.SetActive(false);
+        rewardImage3?.gameObject.SetActive(false);
+
         LoadData();
         LoadBuffs();
         CheckUnlocks();
@@ -88,20 +101,28 @@ public class ClickManagerForStream : MonoBehaviour
         if (!unlocked1 && followers >= unlockAtFollowers)
         {
             rewardFigure1?.SetActive(true);
+            rewardImage1?.gameObject.SetActive(true);
             unlocked1 = true;
+            PlayerPrefs.SetInt(Unlock1Key, 1);
         }
 
         if (!unlocked2 && followers >= unlockAtFollowers2)
         {
             rewardFigure2?.SetActive(true);
+            rewardImage2?.gameObject.SetActive(true);
             unlocked2 = true;
+            PlayerPrefs.SetInt(Unlock2Key, 1);
         }
 
         if (!unlocked3 && followers >= unlockAtFollowers3)
         {
             rewardFigure3?.SetActive(true);
+            rewardImage3?.gameObject.SetActive(true);
             unlocked3 = true;
+            PlayerPrefs.SetInt(Unlock3Key, 1);
         }
+
+        PlayerPrefs.Save();
     }
 
     private void PlayCelebrateEffect(int currentFollower)
@@ -139,6 +160,26 @@ public class ClickManagerForStream : MonoBehaviour
     {
         likes = PlayerPrefs.GetInt(LikesKey, 0);
         followers = PlayerPrefs.GetInt(FollowersKey, 0);
+
+        unlocked1 = PlayerPrefs.GetInt(Unlock1Key, 0) == 1;
+        unlocked2 = PlayerPrefs.GetInt(Unlock2Key, 0) == 1;
+        unlocked3 = PlayerPrefs.GetInt(Unlock3Key, 0) == 1;
+
+        if (unlocked1)
+        {
+            rewardFigure1?.SetActive(true);
+            rewardImage1?.gameObject.SetActive(true);
+        }
+        if (unlocked2)
+        {
+            rewardFigure2?.SetActive(true);
+            rewardImage2?.gameObject.SetActive(true);
+        }
+        if (unlocked3)
+        {
+            rewardFigure3?.SetActive(true);
+            rewardImage3?.gameObject.SetActive(true);
+        }
     }
 
     public void ResetData()
@@ -146,6 +187,9 @@ public class ClickManagerForStream : MonoBehaviour
         PlayerPrefs.DeleteKey(LikesKey);
         PlayerPrefs.DeleteKey(FollowersKey);
         PlayerPrefs.DeleteKey(CoinsKey);
+        PlayerPrefs.DeleteKey(Unlock1Key);
+        PlayerPrefs.DeleteKey(Unlock2Key);
+        PlayerPrefs.DeleteKey(Unlock3Key);
         PlayerPrefs.Save();
 
         likes = 0;
@@ -156,6 +200,10 @@ public class ClickManagerForStream : MonoBehaviour
         rewardFigure1?.SetActive(false);
         rewardFigure2?.SetActive(false);
         rewardFigure3?.SetActive(false);
+
+        rewardImage1?.gameObject.SetActive(false);
+        rewardImage2?.gameObject.SetActive(false);
+        rewardImage3?.gameObject.SetActive(false);
 
         RefreshCoins();
     }
@@ -188,5 +236,4 @@ public class ClickManagerForStream : MonoBehaviour
 
         Debug.Log($"Баффи завантажені: likeMultiplier={likeMultiplier}, coinMultiplier={coinMultiplier}");
     }
-
 }
